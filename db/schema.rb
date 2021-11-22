@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_154933) do
+ActiveRecord::Schema.define(version: 2021_11_22_162008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "program_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_favorites_on_program_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "historicals", force: :cascade do |t|
+    t.bigint "program_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_historicals_on_program_id"
+    t.index ["user_id"], name: "index_historicals_on_user_id"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.string "platform"
+    t.string "description"
+    t.string "url_image"
+    t.integer "length"
+    t.integer "age_range"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.float "rating"
+    t.bigint "user_id", null: false
+    t.bigint "program_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_reviews_on_program_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +68,10 @@ ActiveRecord::Schema.define(version: 2021_11_22_154933) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "programs"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "historicals", "programs"
+  add_foreign_key "historicals", "users"
+  add_foreign_key "reviews", "programs"
+  add_foreign_key "reviews", "users"
 end
