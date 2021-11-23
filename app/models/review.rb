@@ -1,5 +1,3 @@
 class Review < ApplicationRecord
-  belongs_to :user
-  belongs_to :program
-  validates :rating, presence: true
+  belongs_to :watching
 end

@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_162008) do
+ActiveRecord::Schema.define(version: 2021_11_23_132124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "platform_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["platform_id"], name: "index_accounts_on_platform_id"
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.integer "age"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "children_watchings", force: :cascade do |t|
+    t.bigint "child_id", null: false
+    t.bigint "watching_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_children_watchings_on_child_id"
+    t.index ["watching_id"], name: "index_children_watchings_on_watching_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "program_id", null: false
@@ -24,36 +52,34 @@ ActiveRecord::Schema.define(version: 2021_11_22_162008) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "historicals", force: :cascade do |t|
-    t.bigint "program_id", null: false
-    t.bigint "user_id", null: false
+  create_table "platforms", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["program_id"], name: "index_historicals_on_program_id"
-    t.index ["user_id"], name: "index_historicals_on_user_id"
   end
 
   create_table "programs", force: :cascade do |t|
     t.string "title"
     t.string "category"
-    t.string "platform"
     t.string "description"
     t.string "url_image"
+    t.string "program_url"
     t.integer "length"
-    t.integer "age_range"
+    t.integer "min_age"
+    t.integer "max_age"
+    t.bigint "platform_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["platform_id"], name: "index_programs_on_platform_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text "content"
+    t.string "content"
     t.float "rating"
-    t.bigint "user_id", null: false
-    t.bigint "program_id", null: false
+    t.bigint "watching_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["program_id"], name: "index_reviews_on_program_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["watching_id"], name: "index_reviews_on_watching_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,10 +94,24 @@ ActiveRecord::Schema.define(version: 2021_11_22_162008) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "watchings", force: :cascade do |t|
+    t.bigint "program_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_watchings_on_program_id"
+    t.index ["user_id"], name: "index_watchings_on_user_id"
+  end
+
+  add_foreign_key "accounts", "platforms"
+  add_foreign_key "accounts", "users"
+  add_foreign_key "children", "users"
+  add_foreign_key "children_watchings", "children"
+  add_foreign_key "children_watchings", "watchings"
   add_foreign_key "favorites", "programs"
   add_foreign_key "favorites", "users"
-  add_foreign_key "historicals", "programs"
-  add_foreign_key "historicals", "users"
-  add_foreign_key "reviews", "programs"
-  add_foreign_key "reviews", "users"
+  add_foreign_key "programs", "platforms"
+  add_foreign_key "reviews", "watchings"
+  add_foreign_key "watchings", "programs"
+  add_foreign_key "watchings", "users"
 end

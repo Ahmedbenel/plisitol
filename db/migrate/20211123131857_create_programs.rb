@@ -3,11 +3,13 @@ class CreatePrograms < ActiveRecord::Migration[6.0]
     create_table :programs do |t|
       t.string :title
       t.string :category
-      t.string :platform
       t.string :description
       t.string :url_image
+      t.string :program_url
       t.integer :length
-      t.integer :age_range
+      t.integer :min_age
+      t.integer :max_age
+      t.references :platform, null: false, foreign_key: true
 
       t.timestamps
     end
