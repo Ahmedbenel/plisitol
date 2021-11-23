@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :programs, only: [:index, :show] do
     resources :reviews, only: :create
+    resources :watchings, only: :create
+    resources :favorites, only: :create
   end
-  get "/dashboard", to: 'dashboard#show', as: :dashboard
+  resources :dashboards do
+    resources :accounts, only: [:new, :create, :destroy]
+  end
+  resources :watchings do
+    resources :children_watchings, only: [:new, :create]
+  end
 end
