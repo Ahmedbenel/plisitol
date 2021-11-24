@@ -1,37 +1,23 @@
-.banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://c.flikshost.com/60020686/backdrops/large/wBG4kHfhwm3bLwKUFNRByXXv4r2.jpg);
+.wrap-show {
+  display: flex;
+}
+
+.container-show {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.banner-show {
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);
   background-size: cover;
   background-position: center;
-  padding: 15px 0;
-  display: flex;
+  align-items: flex-end;
   justify-content: space-around;
-  align-items: center;
-  height: 100vh;
 }
 
 .banner-info {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 30px;
   flex-direction: column;
-  width: 800px;
-  text-align: center;
-}
-
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px #001D4A;
-  font-size: 26px;
-  font-weight: bold;
-  padding: 15px;
-}
-
-.banner p {
-  font-size: 16px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px #001D4A;
-  padding: 15px;
 }

@@ -1,26 +1,24 @@
-<%# banner + description + avis : %>
-    <%# Banner affiche du film %>
-    <div class="container">
-      <div class="banner">
+<%# div qui englobe la page show : %>
+<div class="wrap-show">
+  <%# div qui englobe banner et description du programme, donc sans les avis %>
+  <div class="container-show">
+    <%# div qui engloge la banner donc l'image majoritairement %>
+    <div class="banner-show">
+      <%# englobe le titre et les boutons sur l'image de la banner %>
       <div class="banner-info">
         <h1><strong>SHREK</strong></h1>
         <p>Découvrez Shrek, un ogre très sale, qui ne prend que des bains de boue...</p>
           <button class="button-one">Regarder sur Netflix</button>
           <button class="button-one">Regarder sur Amazon Prime</button>
           <button class="button-two"><span>Voir la bande-annonce</span></button>
-        </div>
       </div>
     </div>
 
-    <%# Fin de la banner %>
-    <%# Description du programme ci-dessous : %>
     <%= @program.title %>
     <%= @program.description %>
     <%= @program.category %>
     <%= @program.min_age %>
     <%= @program.max_age %>
 
-    <%#  fin Description du programme ci-dessus %>
-
-  <%# Debut des avis utilisateurs ci-dessous :  %>
-  <%# Fin des avis utilisateurs %>
+  </div>
+</div>
