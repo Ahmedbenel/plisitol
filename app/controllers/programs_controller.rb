@@ -5,5 +5,6 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
+    @review = Review.new
   end
 end
