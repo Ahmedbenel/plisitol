@@ -1,37 +1,65 @@
-.banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://c.flikshost.com/60020686/backdrops/large/wBG4kHfhwm3bLwKUFNRByXXv4r2.jpg);
+.program-banner {
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-size: cover;
   background-position: center;
   padding: 15px 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
+  height: 80vh;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
-.banner-info {
+.program-banner-text {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
   padding: 30px;
+  width: 600px;
+  text-align: left;
   flex-direction: column;
-  width: 800px;
-  text-align: center;
+  margin: 80px;
+  color: white;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px #001D4A;
-  font-size: 26px;
-  font-weight: bold;
-  padding: 15px;
+.program-banner-btn {
+  display: flex;
+  justify-content: space-around;
 }
 
-.banner p {
-  font-size: 16px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px #001D4A;
-  padding: 15px;
+.program-content {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px;
+  flex-direction: column;
+  padding: 46px;
+}
+
+.program-content-title-cat-age {
+  display: flex;
+  justify-content: space-around;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-card {
+  width: 500px;
+  height: 172px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  border-radius: 4px;
+}
+
+.review-card-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.review-card-content {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
 }
