@@ -2,21 +2,41 @@
 <div class="program-container">
     <%# div qui engloge la banner donc l'image majoritairement %>
     <div class="program-banner">
+      <%= cl_image_tag @program.photo.key %>
       <%# englobe le titre et les boutons sur l'image de la banner %>
       <div class="program-banner-text">
-        <h1><strong>SHREK</strong></h1>
-        <p>Découvrez Shrek, un ogre très sale, qui ne prend que des bains de boue...</p>
+        <h1><strong><%= @program.title %></strong></h1>
+         <p><%= @program.description %></p>
         <div class="program-banner-btn">
-          <button class="btn-orange">Regarder sur Netflix</button>
+          <button class="btn-orange">Regarder sur <%= @program.platform.name %></button>
           <button class="btn-orange"><span>Voir la bande-annonce</span></button>
         </div>
       </div>
     </div>
+    <div class="program-content">
+      <div class="program-content-title-cat-age">
+        <h1><strong><%= @program.title %></strong></h1>
+        <h2><%= @program.category %></h2>
+        <h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3>
+      </div>
+        <p><%= @program.description %></p>
+    </div>
 
-      <%= @program.title %>
-      <%= @program.description %>
-      <%= @program.category %>
-      <%= @program.min_age %>
-      <%= @program.max_age %>
+<%# à partir de cet endroit, avis laissés sur le programme en question. boucle for each à rajouter %>
+
+  <div class="review-container">
+    <div class="review-card">
+      <div class="review-card-top">
+      <h3>Username</h3>
+      <h3>Note : 3,5 / 5</h3>
+      <%# <%= @program.watchings.user.username %>
+      <%# <%= @program.watchings.reviews.rating %>
+      </div>
+      <div class="review-card-content">
+      <p>Très bon film</p>
+      <%# <%= @program.watchings.reviews.content %>
+      </div>
+    </div>
+  </div>
 
 </div>
