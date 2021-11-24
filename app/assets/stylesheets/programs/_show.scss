@@ -1,23 +1,26 @@
-.wrap-show {
-  display: flex;
-}
 
-.container-show {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.banner-show {
+.program-banner {
   display: flex;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);
   background-size: cover;
   background-position: center;
+  padding: 15px 0;
+  height: 80vh;
   align-items: flex-end;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
-.banner-info {
+.program-banner-text {
   display: flex;
+  padding: 30px;
+  width: 600px;
+  text-align: left;
   flex-direction: column;
+  margin: 80px;
+  color: white;
+}
+
+.program-banner-btn {
+  display: flex;
+  justify-content: space-around;
 }
