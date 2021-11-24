@@ -34,9 +34,15 @@
       </div>
       <div class="review-card-content">
       <p>Très bon film</p>
-      <%# <%= @program.watchings.reviews.content %>
+      <%# <%= @program.watchings.reviews.content%>
       </div>
     </div>
+    <%= simple_form_for [@program, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit %>
+    <% end %>
+    <%# <%= link_to 'Leave a review', reviews_path %>
   </div>
 
 </div>
