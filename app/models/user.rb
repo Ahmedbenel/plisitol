@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :children
   has_many :platforms, through: :accounts
   has_many :reviews, through: :watchings
+  has_one_attached :photo
 end
