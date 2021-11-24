@@ -9,8 +9,8 @@
 .btn-green:hover {
   background-color:  #01851e;
   color: rgb(255, 255, 255);
+}
 
-  
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic);
 
 *{margin: 0px; padding: 0px}
@@ -21,24 +21,23 @@ h1, button{
   padding: 20px;
 }
 
-p{
+p {
   color:#fff;
   text-align: center;
-  padding-top: 500px;
   font-size: 10px;
 }
 
-a{
+a {
    text-decoration:none;
    color:#fff;
 }
 
-a:hover{
+a:hover {
    color:#FFB703;
 }
 
 
-.button-one, .button-two, .button-three{
+.button-one, .button-two, .button-three {
   text-align: center;
   cursor: pointer;
   font-size:16px;
@@ -57,7 +56,7 @@ a:hover{
   box-shadow: 0 0 15px rgba(170, 170, 170, 0.2);
 }
 
-.button-one:hover{
+.button-one:hover {
   background-color: #FFB703;
 }
 
