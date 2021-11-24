@@ -1,0 +1,26 @@
+<%# banner + description + avis : %>
+    <%# Banner affiche du film %>
+    <div class="container">
+      <div class="banner">
+      <div class="banner-info">
+        <h1><strong>SHREK</strong></h1>
+        <p>Découvrez Shrek, un ogre très sale, qui ne prend que des bains de boue...</p>
+          <button class="button-one">Regarder sur Netflix</button>
+          <button class="button-one">Regarder sur Amazon Prime</button>
+          <button class="button-two"><span>Voir la bande-annonce</span></button>
+        </div>
+      </div>
+    </div>
+
+    <%# Fin de la banner %>
+    <%# Description du programme ci-dessous : %>
+    <%= @program.title %>
+    <%= @program.description %>
+    <%= @program.category %>
+    <%= @program.min_age %>
+    <%= @program.max_age %>
+
+    <%#  fin Description du programme ci-dessus %>
+
+  <%# Debut des avis utilisateurs ci-dessous :  %>
+  <%# Fin des avis utilisateurs %>

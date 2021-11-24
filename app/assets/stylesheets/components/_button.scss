@@ -9,4 +9,138 @@
 .btn-green:hover {
   background-color:  #01851e;
   color: rgb(255, 255, 255);
+
+  
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic);
+
+*{margin: 0px; padding: 0px}
+
+h1, button{
+  color:#fff;
+  text-align: center;
+  padding: 20px;
+}
+
+p{
+  color:#fff;
+  text-align: center;
+  padding-top: 500px;
+  font-size: 10px;
+}
+
+a{
+   text-decoration:none;
+   color:#fff;
+}
+
+a:hover{
+   color:#FFB703;
+}
+
+
+.button-one, .button-two, .button-three{
+  text-align: center;
+  cursor: pointer;
+  font-size:16px;
+  margin: 0 0 0 50px;
+}
+
+
+
+/*Button One*/
+.button-one {
+  padding:10px 30px;
+  outline: none;
+  background-color: #FB8500;
+  border: none;
+  border-radius:5px;
+  box-shadow: 0 0 15px rgba(170, 170, 170, 0.2);
+}
+
+.button-one:hover{
+  background-color: #FFB703;
+}
+
+.button-one:active {
+  background-color: #FFB703;
+  transform: translateY(4px);
+}
+
+
+/*Button Two*/
+.button-two {
+  border-radius: 4px;
+  background-color:#023047;
+  border: none;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+}
+
+
+.button-two span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-two span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.button-two:hover span {
+  padding-right: 16px;
+}
+
+.button-two:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+/*Button Three*/
+.button-three {
+    border-radius:5px;
+    position: relative;
+    background-color: #FB8500;
+    border: none;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.button-three:hover{
+   background:#fff;
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   color:#000;
+}
+
+.button-three:after {
+    content: "";
+    background: #FFB703;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button-three:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
 }
