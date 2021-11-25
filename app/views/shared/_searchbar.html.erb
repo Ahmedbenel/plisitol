@@ -1,0 +1,21 @@
+  <div class="container-home-form">
+    <div class="home-form">
+      <%= simple_form_for :request, url: programs_path, method: :get do |f| %>
+        <div class="home-form-text-field">
+        <%= f.input :description, placeholder: "Peppa Pig", label: false, required: false %>
+        </div>
+        <div class="home-form-categ-field">
+        <%= f.input :category, collection: Program::CATEGORY, label: "Catégorie", required: false %>
+        </div>
+        <div class="home-form-age-field">
+        <%= f.input :min_age, label: "Âge", placeholder: "À partir de quel âge ?", as: :numeric, input_html: { min: 0 }, required: false %>
+        </div>
+        <div class="home-form-length-field">
+        <%= f.input :length, collection: Program::LENGTH, label: "Durée", required: false %>
+        </div>
+        <div class="home-form-submit-btn">
+        <%= f.button :submit, "Recherche", class: "btn-search" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
