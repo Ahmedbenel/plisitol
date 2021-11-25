@@ -4,4 +4,16 @@
       <p>Quels programmes pour divertir vos enfants ?</p>
       <%= link_to "see more", programs_path, class: " btn-green" %>
     </div>
+
+  <div class="home-form">
+  <%= simple_form_for :request, url: programs_path, method: :get do |f| %>
+    <%= f.input :description, placeholder: "Quel programme recherchez-vous ?", label: false %>
+    <%= f.input :category, collection: Program::CATEGORY, label: "Catégorie" %>
+    <%= f.input :min_age, collection: Program::AGE, label: "Âge" %>
+    <%= f.input :length, collection: Program::LENGTH, label: "Durée" %>
+    <%= f.button :submit, "Recherche", class: "btn-search" %>
+  <% end %>
+
+  </div>
+
 </div>
