@@ -1,23 +1,23 @@
 <%# %>
-<%#liste des programmes %>
+<%#liste de tous les programmes %>
 <div class="program-container">
   <div class="row justify-content-center">
-    <div class="card-program col-sm-8">
+    <div class="list-cards">
       <div id="programs">
         <% @programs.each do |program| %>
-          <%= link_to program_path(program), class: 'card' do %>
+          <%= link_to program_path(program), class: 'card-program' do %>
             <% if program.photo.attached? %>
               <%= cl_image_tag program.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card__image" alt="" />
             <% end %>
             <div class="card-program-infos">
+              <i class="far fa-heart" class="card-favorite-user icon-bordered"></i>
               <h2><%= program.title %></h2>
               <h4><%= program.category %></h4>
               <p><%= program.description %></p>
-              <p>Age conseillé entre <%= program.min_age %> et <%= program.max_age %></p>
+              <p>Age conseillé entre <%= program.min_age %> et <%= program.max_age %> ans</p>
               <p>Durée : <%= program.length %> minutes</p>
-              <i class="far fa-heart" class="card-favorite-user icon-bordered"></i>
             </div>
           <% end %>
         <% end %>
