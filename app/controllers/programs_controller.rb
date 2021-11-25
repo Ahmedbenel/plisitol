@@ -1,6 +1,8 @@
 class ProgramsController < ApplicationController
   def index
     @programs = Program.all
+    return unless params[:request]
+
     if !(params[:request][:description].blank?)
       sql_query = "programs.description @@ :description"
       @programs = @programs.where(sql_query, description: "%#{params[:request][:description]}%")
@@ -10,10 +12,9 @@ class ProgramsController < ApplicationController
       @programs = @programs.where(sql_query, category: "#{params[:request][:category]}")
     end
     if !(params[:request][:min_age].blank?)
-      min_age = params[:request][:min_age].split("-").first.to_i
-      max_age = params[:request][:min_age].split("-").last.to_i
-      sql_query = "programs.min_age >= :min_age AND programs.min_age < :max_age"
-      @programs = @programs.where(sql_query, min_age: min_age, max_age: max_age)
+      min_age = params[:request][:min_age].to_i
+      sql_query = "programs.min_age >= :min_age"
+      @programs = @programs.where(sql_query, min_age: min_age)
     end
     if !(params[:request][:length].blank?)
       min_length = params[:request][:length].split("-").first.to_i
