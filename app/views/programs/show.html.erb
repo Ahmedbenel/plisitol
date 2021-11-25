@@ -1,12 +1,10 @@
 <%# div qui englobe la page show : %>
 <div class="program-container">
     <%# div qui engloge la banner donc l'image majoritairement %>
-    <div class="program-banner">
-      <%= cl_image_tag @program.photo.key %>
+    <div class="program-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @program.photo.key, crop: :fill %>')">
       <%# englobe le titre et les boutons sur l'image de la banner %>
       <div class="program-banner-text">
         <h1><strong><%= @program.title %></strong></h1>
-         <p><%= @program.description %></p>
         <div class="program-banner-btn">
           <button class="btn-orange">Regarder sur <%= @program.platform.name %></button>
           <button class="btn-orange"><span>Voir la bande-annonce</span></button>

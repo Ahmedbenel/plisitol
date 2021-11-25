@@ -7,6 +7,12 @@
   height: 80vh;
   align-items: flex-end;
   justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+.program-banner img {
+  object-fit: cover;
 }
 
 .program-banner-text {
@@ -15,8 +21,9 @@
   width: 600px;
   text-align: left;
   flex-direction: column;
-  margin: 80px;
   color: white;
+  position: absolute;
+  left: 3%;
 }
 
 .program-banner-btn {
