@@ -23,34 +23,5 @@
     </div>
 
 <%# à partir de cet endroit, avis laissés sur le programme en question. boucle for each à rajouter %>
-
-  <div class="review-container">
-    <div class="review-card">
-      <div class="review-card-top">
-      <h3>Username</h3>
-      <h3>Note : 3,5 / 5</h3>
-      <%# <%= @program.watchings.user.username %>
-      <%# <%= @program.watchings.reviews.rating %>
-      </div>
-      <div class="review-card-content">
-      <p>Très bon film</p>
-      <%# <%= @program.watchings.reviews.content%>
-      </div>
-    </div>
-    <div class="review">
-  <h2>Laissez une évaluation</h2>
-  <%= simple_form_for [@program, @review] do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating, as: :hidden  %>
-    <div class="my-3">
-      <% Review::AUTHORIZED_RATINGS.each do |index| %>
-        <i id="<%= index %>" class="review-rating far fa-star"></i>
-      <% end %>
-    </div>
-    <%= f.submit class: "btn btn-primary", value: "Valider" %>
-  <% end %>
-</div>
-    <%# <%= link_to 'Leave a review', reviews_path %>
-  </div>
-
+  <%= render 'review' %>
 </div>
