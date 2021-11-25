@@ -1,0 +1,30 @@
+.container-home-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-form {
+  display: inline-block;
+  background-color: $orange;
+  border-radius: 50px;
+  border: solid 1px $dark-blue;
+  margin: 10px;
+  padding: 10px
+}
+
+.home-form-text-field {
+  display: inline-block;
+}
+.home-form-categ-field {
+  display: inline-block;
+}
+.home-form-age-field {
+  display: inline-block;
+}
+.home-form-length-field {
+  display: inline-block;
+}
+.home-form-submit-btn {
+  display: inline-block;
+}
