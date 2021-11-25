@@ -1,89 +1,147 @@
-.icon-bordered {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-}
-.card-program {
+.program_card{
   position: relative;
-  display: flex;
-  flex-direction: row;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 2px;
-  padding: 40px;
-}
-.card-program > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-program h2 {
-  margin: 0;
-}
-
-.card-program p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-program .card-program-infos {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-}
-
-.card-program-infos .card-favorite-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-.list-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .list-cards {
-    grid-template-columns: 1fr;
+  display: block;
+  width: 800px;
+  height: 350px;
+  margin: 80px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.4s;
+  box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
+  &:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
+    transition: all 0.4s;
+  }
+  .info_section{
+    position: relative;
+    width: 100%;
+    height: 100%;
+	  background-blend-mode: multiply;
+    z-index: 2;
+    border-radius: 10px;
+    .program_header{
+      position: relative;
+      padding: 25px;
+      height: 40%;
+      h2{
+        color: $dark-blue;
+        font-weight: 400;
+      }
+      h4{
+        color: $light-blue;
+        font-weight: 400;
+      }
+      .minutes{
+        display: inline-block;
+        margin-top: 15px;
+        color: $dark-blue;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+      .age{
+        display: inline-block;
+        color: $orange;
+        margin-left: 10px;
+      }
+      .locandina{
+        position: relative;
+        float: left;
+        margin-right: 20px;
+        height: 120px;
+        box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+      }
+    }
+    .program_desc{
+      padding: 25px;
+      height: 50%;
+      .text{
+        color: $light-blue;
+      }
+    }
+    .program_social{
+      height: 10%;
+      padding-left: 15px;
+      padding-bottom: 20px;
+      ul{
+        list-style: none;
+        padding: 0;
+        li{
+          display: inline-block;
+          color: rgba(0,0,0,0.3);
+          transition: color 0.3s;
+          transition-delay: 0.15s;
+          margin: 0 10px;
+          &:hover{
+            transition: color 0.3s;
+            color: rgba(0,0,0,0.7);
+          }
+          i{
+            font-size: 19px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .blur_back{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%; right: 0;
+    background-size: cover;
+    border-radius: 11px;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .list-cards {
-    grid-template-columns: 1fr;
+@media screen and (min-width: 768px) {
+  .program_header{
+    width: 80%;
+  }
+
+  .program_desc{
+    width: 50%;
+  }
+
+  .info_section{
+    background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
+  }
+
+  .blur_back{
+    width: 80%;
+    background-position: -100% 10% !important;
   }
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .list-cards {
-    grid-template-columns: 1fr 1fr;
+@media screen and (max-width: 768px) {
+  .program_card{
+    width: 95%;
+    margin: 70px auto;
+    min-height: 350px;
+    height: auto;
+  }
+
+  .blur_back{
+    width: 100%;
+    background-position: 50% 50% !important;
+  }
+
+  .program_header{
+    width: 100%;
+    margin-top: 85px;
+  }
+
+  .program_desc{
+    width: 100%;
+  }
+
+  .info_section{
+    background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
+    display: inline-grid;
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .list-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .list-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.program_back{
+  background: fixed;
 }
