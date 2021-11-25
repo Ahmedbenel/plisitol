@@ -15,20 +15,20 @@ Platform.destroy_all
 
 puts 'Creating 1 fake user...'
 user = User.create!(email: 'user@plisitol.com', password: 'secret')
-user.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.png', content_type: 'image/png')
+user.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
 user.save!
 
 puts 'Creating 3 fake children...'
 child = Child.create!(name: "Sidonie", user_id: user.id, age: 10)
-child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.png', content_type: 'image/png')
+child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
 child.save!
 
 child = Child.create!(name: "Freya", user_id: user.id, age: 3)
-child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.png', content_type: 'image/png')
+child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
 child.save!
 
 child = Child.create!(name: "Lukas", user_id: user.id, age: 6)
-child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.png', content_type: 'image/png')
+child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
 child.save!
 
 puts 'Creating 7 platforms...'
@@ -59,7 +59,7 @@ program = Program.create!(
   max_age: 8,
   program_url: "https://www.netflix.com/watch/81045782?trackId=14170096&tctx=1%2C0%2Cf4ba40a3-f810-49e5-aa41-a67bd4f1ca44-42576721%2C645f4eac-8cd9-43a0-b0e6-56c327b80691_59700367X19XX1637683379498%2C%2C"
 )
-program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/10520_1375933.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/10520_1375933.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -72,7 +72,7 @@ program = Program.create!(
   max_age: 5,
   program_url: "https://www.netflix.com/watch/81101585?trackId=14170036&tctx=1%2C9%2Cf4ba40a3-f810-49e5-aa41-a67bd4f1ca44-41994387%2C645f4eac-8cd9-43a0-b0e6-56c327b80691_59700367X19XX1637683379498%2C%2C"
 )
-program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/6901_1391272267.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/6901_1391272267.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -85,7 +85,7 @@ program = Program.create!(
   max_age: 4,
   program_url: "https://www.netflix.com/watch/81441579?trackId=254743534"
 )
-program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/8379_990537.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/8379_990537.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -98,7 +98,7 @@ program = Program.create!(
   max_age: 11,
   program_url: "https://www.betaseries.com/episode/ilaetaitunefoislavie/s01e01"
 )
-program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/917_1458381023.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/917_1458381023.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -111,7 +111,7 @@ program = Program.create!(
   max_age: 12,
   program_url: "https://www.betaseries.com/episode/ducktales-2017/s01e01"
 )
-program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/13732_62132088.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/13732_62132088.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -124,7 +124,7 @@ program = Program.create!(
   max_age: 120,
   program_url: "https://www.disneyplus.com/fr-fr/movies/raya-et-le-dernier-dragon/6dyengbx3iYK?irclickid=TZIV-jwZ4xyITxN1QhQVjUoNUkG2QqRZnVgVyc0&irgwc=1&cid=DSS-Affiliate-Impact-Content-BetaSeries-692369"
 )
-program.photo.attach(io: URI.open('https://fr.web.img6.acsta.net/r_1920_1080/pictures/21/05/11/10/35/1825655.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://fr.web.img6.acsta.net/r_1920_1080/pictures/21/05/11/10/35/1825655.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -137,7 +137,7 @@ program = Program.create!(
   max_age: 120,
   program_url: "https://www.canalplus.com/cinema/coco/h/15058385_50269"
 )
-program.photo.attach(io: URI.open('https://fr.web.img2.acsta.net/r_1920_1080/img/86/42/86423dfc4aea8afac1986c1c2c432879.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://fr.web.img2.acsta.net/r_1920_1080/img/86/42/86423dfc4aea8afac1986c1c2c432879.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -150,7 +150,7 @@ program = Program.create!(
   max_age: 120,
   program_url: "https://www.disneyplus.com/fr-fr/movies/cherie-jai-retreci-les-gosses/53dNy2VPeJ8O?irclickid=TZIV-jwZ4xyITxN1QhQVjUoNUkG2QJVBnVgVyc0&irgwc=1&cid=DSS-Affiliate-Impact-Content-BetaSeries-692369"
 )
-program.photo.attach(io: URI.open('https://fr.web.img2.acsta.net/medias/nmedia/18/63/94/82/19631812.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://fr.web.img2.acsta.net/medias/nmedia/18/63/94/82/19631812.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -163,7 +163,7 @@ program = Program.create!(
   max_age: 120,
   program_url: "https://www.youtube.com/watch?v=8C00YQBOyt4"
 )
-program.photo.attach(io: URI.open('http://www.13productions.fr/boutique/159-large_default/guerre-et-paix-dans-le-potager.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('http://www.13productions.fr/boutique/159-large_default/guerre-et-paix-dans-le-potager.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 program = Program.create!(
@@ -176,7 +176,7 @@ program = Program.create!(
   max_age: 7,
   program_url: "https://www.netflix.com/watch/81154175?trackId=14839166&tctx=-97%2C-97%2C%2C%2C%2C"
 )
-program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/21638_1563645766.jpg'), filename: 'file.png', content_type: 'image/png')
+program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/21638_1563645766.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 puts 'Seed finished! 🌱'
