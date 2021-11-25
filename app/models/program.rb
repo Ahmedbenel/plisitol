@@ -4,6 +4,7 @@ class Program < ApplicationRecord
 
   belongs_to :platform
   has_many :watchings
+  has_many :reviews, through: :watchings
   has_many :favorites
   validates :title, presence: true, uniqueness: true
   validates :min_age, numericality: { greater_than_or_equal_to: 1 }
