@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :accounts
   has_many :watchings
   has_many :children
+  has_many :favorites
   has_many :platforms, through: :accounts
   has_many :reviews, through: :watchings
   has_one_attached :photo
