@@ -10,4 +10,8 @@ class Program < ApplicationRecord
   validates :min_age, numericality: { greater_than_or_equal_to: 1 }
   validates :max_age, numericality: { only_integer: true }
   has_one_attached :photo
+
+  def find_user_favorites(current_user)
+    self.favorites.find_by(user: current_user)
+  end
 end

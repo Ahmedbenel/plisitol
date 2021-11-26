@@ -21,7 +21,17 @@
       </div>
       <div class="program_social">
         <ul>
-          <li><i class="far fa-heart"></i></li>
+          <li>
+            <% if program.find_user_favorites(current_user)%>
+              <%= link_to  program_favorite_path(program, program.find_user_favorites(current_user)), method: :delete do%>
+                <i class="fas fa-heart"></i>
+              <% end %>
+            <% else %>
+              <%= link_to program_favorites_path(program), method: :post do%>
+                <i class="far fa-heart"></i>
+              <% end %>
+            <% end %>
+          </li>
           <li><%= link_to "Voir plus...", program_path(program), id:"link-show" %></li>
         </ul>
       </div>

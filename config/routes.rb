@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :programs, only: [:index, :show] do
     resources :reviews, shallow: true
     resources :watchings, only: :create
-    resources :favorites, only: :create
+    resources :favorites, only: [:create, :destroy]
   end
 
   get "/dashboard", to: "dashboards#show", as: :dashboard
