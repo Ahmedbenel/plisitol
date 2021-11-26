@@ -1,2 +1,9 @@
-<div class="container">
+<div class="general-container">
+  <div class="general-container-kids">
+    <% current_user.children.each do |child| %>
+      <%= child.name %>
+    <p><%= child.age %> ans </p>
+    <% end %>
+
+  </div>
 </div>
