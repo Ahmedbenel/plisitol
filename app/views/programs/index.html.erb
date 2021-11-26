@@ -12,7 +12,7 @@
         <h2><%= program.title %></h2>
         <h4><%= program.category %></h4>
         <span class="minutes"><%= program.length %> min</span>
-        <p class="age">Age conseillé entre <%= program.min_age %> et <%= program.max_age %> ans</p>
+        <p class="age">A partir de <%= program.min_age %> ans</p>
       </div>
       <div class="program_desc">
         <p class="text">
@@ -21,8 +21,8 @@
       </div>
       <div class="program_social">
         <ul>
-          <li><i class="far fa-heart" class="material-icons"></i></li>
-          <li><%= link_to "Voir plus...", program_path(program), class:"material-icons" %></li>
+          <li><i class="far fa-heart"></i></li>
+          <li><%= link_to "Voir plus...", program_path(program), id:"link-show" %></li>
         </ul>
       </div>
     </div>
