@@ -69,13 +69,13 @@
         padding: 0;
         li{
           display: inline-block;
-          color: rgba(0,0,0,0.3);
+          color: $light-orange;
           transition: color 0.3s;
           transition-delay: 0.15s;
           margin: 0 10px;
           &:hover{
             transition: color 0.3s;
-            color: rgba(0,0,0,0.7);
+            color: $orange;
           }
           i{
             font-size: 19px;
@@ -83,6 +83,13 @@
           }
         }
       }
+    }
+  }
+  #link-show {
+    color: $dark-blue;
+    &:hover{
+      transition: color 0.3s;
+      color: $light-blue;
     }
   }
   .blur_back{
