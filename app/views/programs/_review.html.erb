@@ -12,12 +12,9 @@
           </p>
         <% end %>
     </div>
-    <div class="review" data-controller="insert-in-list">
-      <div data-insert-in-list-target="items">
-          <h2>Laissez une évaluation</h2>
-      </div>
-        <%= simple_form_for [@program, @review],data: {insert_in_list_target: 'form',
-            action: 'submit->insert-in-list#send'}) do |f| %>
+    <div class="review" >
+        <h2>Laissez une évaluation</h2>
+        <%= simple_form_for [@program, @review] do |f| %>
           <%= f.input :content %>
           <%= f.input :rating, as: :hidden  %>
           <div class="my-3">
