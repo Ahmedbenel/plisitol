@@ -69,14 +69,7 @@
         padding: 0;
         li{
           display: inline-block;
-          color: $light-orange;
-          transition: color 0.3s;
-          transition-delay: 0.15s;
           margin: 0 10px;
-          &:hover{
-            transition: color 0.3s;
-            color: $orange;
-          }
           i{
             font-size: 19px;
             cursor: pointer;
@@ -84,6 +77,15 @@
         }
       }
     }
+  }
+  .fa-heart {
+    color: $light-orange;
+    transition: color 0.3s;
+    transition-delay: 0.15s;
+    &:hover{
+            transition: color 0.3s;
+            color: $orange;
+          }
   }
   #link-show {
     color: $dark-blue;
