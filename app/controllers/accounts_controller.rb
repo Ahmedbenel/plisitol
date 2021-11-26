@@ -14,7 +14,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @account.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_url notice: 'Compte supprimé avec succès.'}
+      format.html { redirect_to dashboard_url notice: 'Compte supprimé avec succès.' }
     end
   end
 

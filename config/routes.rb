@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     resources :watchings, only: :create
     resources :favorites, only: :create
   end
-  resources :dashboards do
-    resources :accounts, only: [:new, :create, :destroy]
-  end
+
+  get "/dashboard", to: "dashboards#show", as: :dashboard
+
   resources :watchings do
     resources :children_watchings, only: [:new, :create]
   end
+  resources :accounts, only: [:new, :create, :destroy]
 end
