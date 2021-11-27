@@ -8,5 +8,22 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+}
+
+.navbar-brand-logo-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand-name {
+  font-family: 'Carter One';
+  color: $light-blue;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.navbar-brand-name a:hover{
+  text-decoration: none;
 }
