@@ -14,8 +14,10 @@
         <%= f.input :length, collection: Program::LENGTH, prompt: "Durée", label: false, required: false %>
         </div>
         <div class="home-form-submit-btn">
-        <%= f.button :submit, wrapper_html: { class: 'fas fa-search' }, label: false, class: "btn-search" %>
+          <%= button_tag type: 'submit' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
         </div>
-      <% end %>
+     <% end %>
     </div>
   </div>
