@@ -1,3 +1,9 @@
+.form-control {
+  background-color: $grey;
+  border: none;
+  color: $light-blue;
+}
+
 .container-home-form {
   display: flex;
   justify-content: center;
@@ -5,30 +11,42 @@
 }
 
 .home-form {
-  display: inline-block;
-  background-color: $orange;
+  display: flex;
+  background-color: $grey;
   border-radius: 50px;
   border: solid 1px $dark-blue;
   margin: 10px;
-  padding: 10px
+  padding: 5px;
+  text-align: center;
 }
 
 .home-form-text-field {
+  padding-top: 12px;
   display: inline-block;
 }
 .home-form-categ-field {
+  padding-top: 12px;
   display: inline-block;
 }
 .home-form-age-field {
+  padding-top: 12px;
   display: inline-block;
 }
 .home-form-length-field {
+  padding-top: 12px;
   display: inline-block;
 }
 .home-form-submit-btn {
+  padding-top: 12px;
   display: inline-block;
 }
 
+.fa-search:hover {
+  font-weight: bolder;
+  color: $dark-blue;
+}
+
 button {
-  background-color: $orange;
+  background-color: $grey;
+  color: $light-blue;
 }
