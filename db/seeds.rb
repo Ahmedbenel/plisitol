@@ -32,23 +32,45 @@ child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), fil
 child.save!
 
 puts 'Creating 7 platforms...'
-platform = Platform.create!(name: "Netflix")
-platform.save!
-platform = Platform.create!(name: "Amazon Prime")
-platform.save!
-platform = Platform.create!(name: "Disney+")
-platform.save!
-platform = Platform.create!(name: "Youtube")
-platform.save!
-platform = Platform.create!(name: "Salto")
-platform.save!
-platform = Platform.create!(name: "OCS")
-platform.save!
-platform = Platform.create!(name: "Canal+")
-platform.save!
+netflix = Platform.create!(name: "Netflix")
+netflix.photo.attach(io: URI.open('https://pbs.twimg.com/profile_images/1462784618768347145/aB8hqq4a_400x400.jpg'), filename: 'icon.jpg', content_type: 'image/png')
+netflix.save!
+
+amazon_prime = Platform.create!(name: "Amazon Prime")
+amazon_prime.photo.attach(io: URI.open('https://images-na.ssl-images-amazon.com/images/I/41mpv9rBhmL.png'), filename: 'icon.jpg', content_type: 'image/png')
+amazon_prime.save!
+
+disney_plus = Platform.create!(name: "Disney+")
+disney_plus.photo.attach(io: URI.open('https://static.wikia.nocookie.net/lemondededisney/images/4/43/Disney_logo.svg.png/revision/latest?cb=20200324125905&path-prefix=fr'), filename: 'icon.jpg', content_type: 'image/png')
+disney_plus.save!
+
+youtube = Platform.create!(name: "Youtube")
+youtube.photo.attach(io: URI.open('https://yt3.ggpht.com/ytc/AKedOLTLjCRtFNjN93H-5cNhepnZy3x6ZNrmufpDo4n4zg=s900-c-k-c0x00ffffff-no-rj'), filename: 'icon.jpg', content_type: 'image/png')
+youtube.save!
+
+salto = Platform.create!(name: "Salto")
+salto.photo.attach(io: URI.open('https://cdn2.clc2l.fr/t/s/a/salto-3xVKb_.png'), filename: 'icon.jpg', content_type: 'image/png')
+salto.save!
+
+ocs = Platform.create!(name: "OCS")
+ocs.photo.attach(io: URI.open('https://www.ocs.fr/themes/ocs/img/OCS_ss_baseline.png'), filename: 'icon.jpg', content_type: 'image/png')
+ocs.save!
+
+canal_plus = Platform.create!(name: "Canal+")
+canal_plus.photo.attach(io: URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Canal%2B.svg/langen-280px-Canal%2B.svg.png'), filename: 'icon.jpg', content_type: 'image/png')
+canal_plus.save!
+
+puts 'Creating fake accounts to platforms...'
+account = Account.create!(user_id: user.id, platform_id: netflix.id)
+account.save!
+
+account = Account.create!(user_id: user.id, platform_id: amazon_prime.id)
+account.save!
+
+account = Account.create!(user_id: user.id, platform_id: disney_plus.id)
+account.save!
 
 puts 'Creating 10 programs...'
-
 program = Program.create!(
   title: 'Paw Patrol',
   description: "Sous la houlette d'un garçon de 10 ans, une patrouille de six chiots héroïques accomplit des missions de sauvetage haletantes, avec beaucoup d'humour et d'intelligence.",
