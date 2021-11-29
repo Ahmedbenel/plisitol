@@ -10,8 +10,11 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "dashboards#show", as: :dashboard
 
+  resources :children, only: [:create, :destroy]
+
   resources :watchings, except: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :children_watchings, only: [:new, :create, :destroy]
   end
+  
   resources :accounts, only: [:new, :create, :destroy]
 end
