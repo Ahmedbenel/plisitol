@@ -1,7 +1,16 @@
-
-<% @children.each do |child| %>
-    <%= image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
-  <% end %>
-
-<%# TODO %>
-
+<div class="container-select-child">
+  <div class="card-select-children">
+    <% current_user.children.each do |child| %>
+      <div>
+          <% if child.photo.attached? %>
+            <%= link_to  watching_children_watchings_path(child_id: child.id), method: :post do%>
+              <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
+            <% end %>
+          <% else %>
+            <i class=“fas fa-portrait”></i>
+          <% end %>
+          <h3 class="child-name"> <%= child.name %> </h3>
+      </div>
+    <% end %>
+  </div>
+</div>
