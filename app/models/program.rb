@@ -4,7 +4,7 @@ class Program < ApplicationRecord
 
   belongs_to :platform
   has_many :watchings
-  has_many :reviews, through: :watchings
+  has_many :reviews
   has_many :favorites
   validates :title, presence: true, uniqueness: true
   validates :min_age, numericality: { greater_than_or_equal_to: 1 }
@@ -13,5 +13,9 @@ class Program < ApplicationRecord
 
   def find_user_favorites(current_user)
     self.favorites.find_by(user: current_user)
+  end
+
+  def already_reviewed?(user)
+    reviews.select { |review| review.user == user }.any?
   end
 end

@@ -1,28 +1,29 @@
-  <div class="review-container">
-    <p>
-      Moyenne : <%= @average_rating %>
-    </p>
+<div class="review-container">
     <div class="reviews">
-        <% @program.reviews.each do |review| %>
-          <p>
-            <% Review::AUTHORIZED_RATINGS.each do |number| %>
-              <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+      <% @program.reviews.each do |review| %>
+              <%= review.username %>
+              <time datetime="#" class="card__date"><%= review.created_at %></time>
+              <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+              <% end %>
+                  <%= review.content %>
             <% end %>
-            <%= review.content %>
-          </p>
-        <% end %>
     </div>
-    <div class="review">
-      <h2>Laissez une évaluation</h2>
+
+
+  <% if @watching && !@already_reviewed %>
+      <div class="review">
+        <h2>Laissez une évaluation</h2>
         <%= simple_form_for [@program, @review] do |f| %>
           <%= f.input :content %>
           <%= f.input :rating, as: :hidden  %>
           <div class="my-3">
-              <% Review::AUTHORIZED_RATINGS.each do |index| %>
-                <i id="<%= index %>" class="review-rating far fa-star"></i>
-              <% end %>
+            <% Review::AUTHORIZED_RATINGS.each do |index| %>
+              <i id="<%= index %>" class="review-rating far fa-star"></i>
+            <% end %>
           </div>
           <%= f.submit class: "btn btn-primary", value: "Valider" %>
         <% end %>
-    </div>
-  </div>
+      </div>
+  <% end %>
+</div>
