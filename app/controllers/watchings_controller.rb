@@ -6,7 +6,7 @@ class WatchingsController < ApplicationController
     @watching.user = @user
     @watching.program = @program
     if @watching.save
-      redirect_to new_watching_children_watching_path(@watching)
+      redirect_to watching_children_watchings_path(@watching)
     end
   end
 end
