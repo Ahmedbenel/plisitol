@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
   resources :children, only: [:create, :destroy]
 
-  resources :watchings do
-    resources :children_watchings, only: [:new, :create]
+  resources :watchings, except: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :children_watchings, only: [:new, :create, :destroy]
   end
+  
   resources :accounts, only: [:new, :create, :destroy]
 end
