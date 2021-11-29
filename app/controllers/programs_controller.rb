@@ -27,5 +27,7 @@ class ProgramsController < ApplicationController
   def show
     @program = Program.find(params[:id])
     @review = Review.new
+    @watching = Watching.find_by_program_id(@program)
+    @already_reviewed = @program.already_reviewed?(current_user)
   end
 end
