@@ -11,4 +11,18 @@ const addChild = () => {
   }
 }
 
+const addAccount = () => {
+  const addAccountForm = document.querySelector(".account-add-form");
+  const btnAddAccount = document.querySelector("#add-account");
+
+  if (btnAddAccount) {
+    btnAddAccount.addEventListener("click", () => {
+      addAccountForm.classList.remove("disable");
+      addAccountForm.classList.add("active");
+      btnAddAccount.classList.add("disable");
+    })
+  }
+}
+
 export { addChild }
+export { addAccount }

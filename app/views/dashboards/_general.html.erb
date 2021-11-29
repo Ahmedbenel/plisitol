@@ -22,11 +22,21 @@
 
 <h4>Mes comptes :</h4>
   <div class="general-accounts-list">
-  <% current_user.platforms.each do |platform| %>
+  <% current_user.platforms.each do |p| %>
     <div class="general-accounts-item">
-    <%= platform.name %>
+      <%= link_to p.name, account_path(p),
+          method: :delete,
+          data: { confirm: "êtes vous sûr(e) de vouloir supprimer ce compte?" } %>
     </div>
   <% end %>
+<button id="add-account"><i class="fas fa-plus-circle"></i></button>
+
+  <div class="account-add-form disable">
+    <%= simple_form_for @account do |f| %>
+      <%= f.association :platform %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
   </div>
 
 </div>
