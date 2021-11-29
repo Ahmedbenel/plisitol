@@ -4,5 +4,6 @@ class DashboardsController < ApplicationController
     @watchings = current_user.watchings
     @favorites = current_user.favorites
     @children = current_user.children
+    @child = Child.new
   end
 end
