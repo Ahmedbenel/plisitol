@@ -1,0 +1,15 @@
+.general-kids-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 36px;
+  padding: 16px;
+}
+
+.disable {
+  display: none;
+}
+
+.active {
+  display: block;
+}

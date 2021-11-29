@@ -1,9 +1,18 @@
-<div class="general-container">
-  <div class="general-container-kids">
+<div class="general-wrap">
+  <div class="general-kids-list">
     <% current_user.children.each do |child| %>
-      <%= child.name %>
-    <p><%= child.age %> ans </p>
+      <div class="general-kids-item">
+        <%= child.name %>
+      </div>
     <% end %>
+  <button id="create-child">+</button>
 
+  <div class="child-add-form disable">
+    <%= simple_form_for @child do |f| %>
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
   </div>
 </div>
