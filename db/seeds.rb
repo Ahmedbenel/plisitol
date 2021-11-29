@@ -14,7 +14,7 @@ Program.destroy_all
 Platform.destroy_all
 
 puts 'Creating 1 fake user...'
-user = User.create!(email: 'user@plisitol.com', password: 'secret')
+user = User.create!(email: 'user@plisitol.com', password: 'secret', username: "Anne O'Nyme")
 user.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
 user.save!
 
