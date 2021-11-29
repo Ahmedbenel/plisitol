@@ -6,7 +6,7 @@
       <div class="program-banner-text">
         <h1><strong><%= @program.title %></strong></h1>
         <div class="program-banner-btn">
-          <button class="btn-orange">Regarder sur <%= @program.platform.name %></button>
+          <%= link_to "Regarder sur #{@program.platform.name}", program_watchings_path(@program), method: :post, class: "btn-orange" %>
           <button class="btn-orange"><span>Voir la bande-annonce</span></button>
         </div>
       </div>
