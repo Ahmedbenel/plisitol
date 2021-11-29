@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { addChild } from '../components/dashboard';
+import { addAccount, addChild } from '../components/dashboard';
 import { dynamicRating } from "../plugins/starsInReviewForm";
 
 document.addEventListener('turbolinks:load', () => {
@@ -34,5 +34,9 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   dynamicRating();
   addChild();
+
   myTestHighCharts();
+
+  addAccount();
+
 });

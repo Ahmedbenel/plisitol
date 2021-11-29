@@ -6,8 +6,9 @@ class AccountsController < ApplicationController
   def create
     @account = Account.create(account_params)
     @account.user = current_user
-    @account.save
-    redirect_to dashboard_path(@account)
+    if @account.save
+      redirect_to dashboard_path
+    end
   end
 
   def destroy
@@ -21,6 +22,6 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:platform)
+    params.require(:account).permit(:platform_id)
   end
 end
