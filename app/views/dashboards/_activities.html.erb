@@ -1,0 +1,30 @@
+<div class="container-activities">
+
+  <h4>Mon historique :</h4>
+    <div class="activities-watchings-list">
+      <% current_user.watchings.each do |watching| %>
+        <div class="activities-watchings list">
+            <%= watching.program.title %>
+        </div>
+      <% end %>
+    </div>
+
+  <h4>Mes favoris :</h4>
+    <div class="activities-favorites-list">
+      <% current_user.favorites.each do |favorite| %>
+        <div class="activities-favorites-item">
+          <%= favorite.program.title %>
+        </div>
+      <% end %>
+    </div>
+
+  <h4>Mes avis :</h4>
+    <div class="activities-reviews-list">
+      <% current_user.reviews.each do |review| %>
+        <div class="activities-reviews-item">
+          <%= render '../programs/review' %>
+        </div>
+      <% end %>
+    </div>
+
+</div>
