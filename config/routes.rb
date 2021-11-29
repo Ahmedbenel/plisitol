@@ -8,16 +8,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-  # namespace :dashboard do
-  #   resources :users, only: [:show, :update]
-  # end
-
   get "/dashboard", to: "dashboards#show", as: :dashboard
 
-  resources :children, only: [:create]
-
-  # post "/dashboard/children/create", to: "children#create"
-  # get "/dashboard/children/new", to: "children#new"
+  resources :children, only: [:create, :destroy]
 
   resources :watchings do
     resources :children_watchings, only: [:new, :create]

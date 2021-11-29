@@ -13,6 +13,12 @@ class ChildrenController < ApplicationController
     end
   end
 
+  def destroy
+    @child = Child.find(params[:id])
+    @child.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def children_params

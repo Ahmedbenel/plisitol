@@ -1,18 +1,32 @@
 <div class="general-wrap">
+<h4>Enfants hébergés sur mon compte :</h4>
   <div class="general-kids-list">
-    <% current_user.children.each do |child| %>
+    <% current_user.children.each do |c| %>
       <div class="general-kids-item">
-        <%= child.name %>
+       <%= link_to c.name, child_path(c),
+          method: :delete,
+          data: { confirm: "êtes vous sûr(e) de vouloir supprimer cet enfant?" } %>
       </div>
     <% end %>
-  <button id="create-child">+</button>
+  <button id="create-child"><i class="fas fa-plus-circle"></i></button>
 
   <div class="child-add-form disable">
-    <%= simple_form_for @child do |f| %>
-      <%= f.input :name %>
+    <%= simple_form_for child do |f| %>
+      <%= f.input :name, label: "Prénom"%>
       <%= f.input :age %>
+      <%= f.input :image_url, as: :file %>
       <%= f.button :submit %>
     <% end %>
   </div>
   </div>
+
+<h4>Mes comptes :</h4>
+  <div class="general-accounts-list">
+  <% current_user.platforms.each do |platform| %>
+    <div class="general-accounts-item">
+    <%= platform.name %>
+    </div>
+  <% end %>
+  </div>
+
 </div>
