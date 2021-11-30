@@ -20,10 +20,12 @@
 
   <h4>Mes avis :</h4>
     <div class="activities-reviews-list">
-      <% current_user.reviews.each do |review| %>
-        <div class="activities-reviews-item">
-          <%= render '../programs/review' %>
-        </div>
+    <% if current_user.reviews.present? %>
+        <% current_user.reviews.each do |review| %>
+          <div class="activities-reviews-item">
+            <%= render 'programs/review' %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 

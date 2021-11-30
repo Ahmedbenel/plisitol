@@ -1,18 +1,20 @@
 <div class="review-container">
-    <div class="reviews-card">
-      <% @program.reviews.each do |review| %>
-            <div class="user-review">
-                <h4><%= review.username %></h4>
-                <time datetime="#" class="card__date"><%= review.created_at %></time>
-            </div>
-            <div class="rating-review">
-                  <% Review::AUTHORIZED_RATINGS.each do |number| %>
-                    <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
-                  <% end %>
-                  <h3><%= review.content %></h3>
-            </div>
-            <% end %>
-    </div>
+      <% if @program.present? %>
+        <% @program.reviews.each do |review| %>
+          <div class="reviews-card">
+              <div class="user-review">
+                  <h4><%= review.username %></h4>
+                  <time datetime="#" class="card__date"><%= review.created_at %></time>
+              </div>
+              <div class="rating-review">
+                    <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                      <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+                    <% end %>
+                    <h3><%= review.content %></h3>
+              </div>
+          </div>
+        <% end %>
+      <% end %>
 
 
   <% if @watching && !@already_reviewed %>
