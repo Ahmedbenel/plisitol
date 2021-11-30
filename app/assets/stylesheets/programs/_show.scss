@@ -44,29 +44,17 @@
   justify-content: space-around;
 }
 
+//review
 .review-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.review-card {
-  width: 500px;
-  height: 172px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
-  border-radius: 4px;
-}
 
-.review-card-top {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-}
-
-.review-card-content {
-  display: flex;
-  justify-content: center;
-  padding: 16px;
+.reviews-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 64px;
+  text-align: center;
+  background-color: #f1f1f1;
 }
