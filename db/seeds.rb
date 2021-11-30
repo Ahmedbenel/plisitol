@@ -204,64 +204,103 @@ program.save!
 puts 'Creating fake watchings...'
   3.times do
     watching_8_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_8_days_ago.created_at = (Date.today - 8)
     watching_8_days_ago.save!
   end
 
   3.times do
     watching_7_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_7_days_ago.created_at = (Date.today - 7)
     watching_7_days_ago.save!
   end
 
   3.times do
     watching_6_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_6_days_ago.created_at = (Date.today - 6)
     watching_6_days_ago.save!
   end
 
   3.times do
     watching_5_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_5_days_ago.created_at = (Date.today - 5)
     watching_5_days_ago.save!
   end
 
   3.times do
     watching_4_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_4_days_ago.created_at = (Date.today - 4)
     watching_4_days_ago.save!
   end
 
   3.times do
     watching_3_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_3_days_ago.created_at = (Date.today - 3)
     watching_3_days_ago.save!
   end
 
   3.times do
     watching_2_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_2_days_ago.created_at = (Date.today - 2)
     watching_2_days_ago.save!
   end
 
   3.times do
     watching_1_day_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_1_day_ago.created_at = (Date.today - 1)
     watching_1_day_ago.save!
   end
 
   3.times do
     watching_today = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
-    watching_today.created_at = (Date.today)
     watching_today.save!
   end
 
 puts 'Creating fake children watchings...'
 
-30.times do
-  children_watching = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
-  children_watching.save!
-end
+  3.times do
+    children_watching_8_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_8_days_ago.created_at = (Date.today - 8)
+    children_watching_8_days_ago.save!
+  end
 
+  3.times do
+    children_watching_7_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_7_days_ago.created_at = (Date.today - 7)
+    children_watching_7_days_ago.save!
+  end
+
+  3.times do
+    children_watching_6_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_6_days_ago.created_at = (Date.today - 6)
+    children_watching_6_days_ago.save!
+  end
+
+  3.times do
+    children_watching_5_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_5_days_ago.created_at = (Date.today - 5)
+    children_watching_5_days_ago.save!
+  end
+
+  3.times do
+    children_watching_4_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_4_days_ago.created_at = (Date.today - 4)
+    children_watching_4_days_ago.save!
+  end
+
+  3.times do
+    children_watching_3_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_3_days_ago.created_at = (Date.today - 3)
+    children_watching_3_days_ago.save!
+  end
+
+  3.times do
+    children_watching_2_days_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_2_days_ago.created_at = (Date.today - 2)
+    children_watching_2_days_ago.save!
+  end
+
+  3.times do
+    children_watching_1_day_ago = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_1_day_ago.created_at = (Date.today - 1)
+    children_watching_1_day_ago.save!
+  end
+
+  3.times do
+    children_watching_today = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+    children_watching_today.created_at = (Date.today)
+    children_watching_today.save!
+  end
 
 puts 'Seed finished! 🌱'

@@ -22,7 +22,7 @@
     <div class="activities-reviews-list">
       <% current_user.reviews.each do |review| %>
         <div class="activities-reviews-item">
-          <%= render '../programs/review' %>
+          <%= render 'review' %>
         </div>
       <% end %>
     </div>

@@ -4,6 +4,7 @@ class Program < ApplicationRecord
 
   belongs_to :platform
   has_many :watchings
+  has_many :children_watchings, through: :watchings
   has_many :reviews
   has_many :favorites
   validates :title, presence: true, uniqueness: true
