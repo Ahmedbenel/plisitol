@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :platforms, through: :accounts
   has_many :reviews, through: :watchings
+  has_many :children_watchings, through: :children
   has_one_attached :photo
 
   # validates :account, uniqueness: { scope: :platform_id }
