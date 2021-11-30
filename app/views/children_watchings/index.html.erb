@@ -1,25 +1,31 @@
-<h2>Qui participe à la séance ?</h2>
-<% current_user.children.each do |child| %>
-  <% if child.watchings.where(id: params[:watching_id]).any?  %>
-    <%= link_to children_watching_path(child.find_child_watchings(@watching)), method: :delete do %>
-      <%= cl_image_tag child.photo.key, class: "avatar-large border border-primary" %>
-    <% end %>
-    <%#= on affiche le avatar du sale gosse entouré de bleu %>
-  <% else %>
-    <%= simple_form_for([@watching, @children_watching]) do |f| %>
-      <%= f.hidden_field :child_id, value: child.id %>
-      <%= button_tag type: 'submit' do %>
-        <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
+<div class="btn">
+  <i class="fas fa-chevron-left"></i>
+  <%= link_to 'Retour', program_path(@watching.program) %>
+</div>
+<div class="container-children-watching">
+  <h2>Qui participe à la séance ?</h2>
+  <div class="card-child-avatar">
+    <% current_user.children.each do |child| %>
+      <% if child.watchings.where(id: params[:watching_id]).any?  %>
+        <%= link_to children_watching_path(child.find_child_watchings(@watching)), method: :delete do %>
+          <%= cl_image_tag child.photo.key, class: "avatar-bordered" %>
+        <% end %>
+        <%#= on affiche le avatar du sale gosse entouré de bleu %>
+      <% else %>
+        <%= simple_form_for([@watching, @children_watching]) do |f| %>
+          <%= f.hidden_field :child_id, value: child.id %>
+          <%= button_tag type: 'submit' do %>
+            <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
+          <% end %>
+        <% end %>
+        <%#= on affiche le avatar sans cercle bleu %>
       <% end %>
     <% end %>
-    <%#= on affiche le avatar sans cercle bleu %>
-  <% end %>
-<% end %>
-<%#= lien vers la vidéo sur la plateforme %>
-<div class="btn-orange">
-  <% if @current_user.children_watchings.where(id: params[:watching_id]).nil? %>
-    "HELLO YOU "
-  <% else %>
-    <%= link_to "Votre séance !", @watching.program.program_url, :target => "_blank" %>
+  </div>
+  <%#= lien vers la vidéo sur la plateforme %>
+  <% if @children_watchings.present? %>
+    <div class="btn-orange">
+      <%= link_to "Votre séance !", @watching.program.program_url, :target => "_blank" %>
+    </div>
   <% end %>
 </div>
