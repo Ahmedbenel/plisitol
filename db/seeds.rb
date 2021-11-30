@@ -19,17 +19,17 @@ user.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), file
 user.save!
 
 puts 'Creating 3 fake children...'
-child = Child.create!(name: "Sidonie", user_id: user.id, age: 10)
-child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
-child.save!
+sidonie = Child.create!(name: "Sidonie", user_id: user.id, age: 10)
+sidonie.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
+sidonie.save!
 
-child = Child.create!(name: "Freya", user_id: user.id, age: 3)
-child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
-child.save!
+freya = Child.create!(name: "Freya", user_id: user.id, age: 3)
+freya.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
+freya.save!
 
-child = Child.create!(name: "Lukas", user_id: user.id, age: 6)
-child.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
-child.save!
+lukas = Child.create!(name: "Lukas", user_id: user.id, age: 6)
+lukas.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
+lukas.save!
 
 puts 'Creating 7 platforms...'
 netflix = Platform.create!(name: "Netflix")
@@ -61,14 +61,14 @@ canal_plus.photo.attach(io: URI.open('https://upload.wikimedia.org/wikipedia/com
 canal_plus.save!
 
 puts 'Creating fake accounts to platforms...'
-account = Account.create!(user_id: user.id, platform_id: netflix.id)
-account.save!
+account_netflix = Account.create!(user_id: user.id, platform_id: netflix.id)
+account_netflix.save!
 
-account = Account.create!(user_id: user.id, platform_id: amazon_prime.id)
-account.save!
+account_amazon_prime = Account.create!(user_id: user.id, platform_id: amazon_prime.id)
+account_amazon_prime.save!
 
-account = Account.create!(user_id: user.id, platform_id: disney_plus.id)
-account.save!
+account_disney_plus = Account.create!(user_id: user.id, platform_id: disney_plus.id)
+account_disney_plus.save!
 
 puts 'Creating 10 programs...'
 program = Program.create!(
@@ -200,5 +200,68 @@ program = Program.create!(
 )
 program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/21638_1563645766.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
+
+puts 'Creating fake watchings...'
+  3.times do
+    watching_8_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_8_days_ago.created_at = (Date.today - 8)
+    watching_8_days_ago.save!
+  end
+
+  3.times do
+    watching_7_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_7_days_ago.created_at = (Date.today - 7)
+    watching_7_days_ago.save!
+  end
+
+  3.times do
+    watching_6_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_6_days_ago.created_at = (Date.today - 6)
+    watching_6_days_ago.save!
+  end
+
+  3.times do
+    watching_5_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_5_days_ago.created_at = (Date.today - 5)
+    watching_5_days_ago.save!
+  end
+
+  3.times do
+    watching_4_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_4_days_ago.created_at = (Date.today - 4)
+    watching_4_days_ago.save!
+  end
+
+  3.times do
+    watching_3_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_3_days_ago.created_at = (Date.today - 3)
+    watching_3_days_ago.save!
+  end
+
+  3.times do
+    watching_2_days_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_2_days_ago.created_at = (Date.today - 2)
+    watching_2_days_ago.save!
+  end
+
+  3.times do
+    watching_1_day_ago = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_1_day_ago.created_at = (Date.today - 1)
+    watching_1_day_ago.save!
+  end
+
+  3.times do
+    watching_today = Watching.create!(program_id: Program.all.sample.id, user_id: user.id)
+    watching_today.created_at = (Date.today)
+    watching_today.save!
+  end
+
+puts 'Creating fake children watchings...'
+
+30.times do
+  children_watching = ChildrenWatching.create!(child_id: Child.all.sample.id, watching_id: Watching.all.sample.id)
+  children_watching.save!
+end
+
 
 puts 'Seed finished! 🌱'
