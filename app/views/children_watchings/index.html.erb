@@ -15,7 +15,9 @@
         <%= simple_form_for([@watching, @children_watching]) do |f| %>
           <%= f.hidden_field :child_id, value: child.id %>
           <%= button_tag type: 'submit' do %>
-            <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
+            <% if child.photo.attached? %>
+              <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
+            <% end %>
           <% end %>
         <% end %>
         <%#= on affiche le avatar sans cercle bleu %>
