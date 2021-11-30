@@ -17,6 +17,8 @@ class Program < ApplicationRecord
   end
 
   def already_reviewed?(user)
+    if reviews.present?
     reviews.select { |review| review.user == user }.any?
+    end
   end
 end
