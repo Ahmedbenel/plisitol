@@ -3,7 +3,7 @@
   <h4>Mon historique :</h4>
     <div class="activities-watchings-list">
       <% current_user.watchings.each do |watching| %>
-        <div class="activities-watchings list">
+        <div class="activities-watchings-item">
             <%= watching.program.title %>
         </div>
       <% end %>
@@ -20,6 +20,7 @@
 
   <h4>Mes avis :</h4>
     <div class="activities-reviews-list">
+
     <% if current_user.reviews.present? %>
         <% current_user.reviews.each do |review| %>
           <div class="activities-reviews-item">
