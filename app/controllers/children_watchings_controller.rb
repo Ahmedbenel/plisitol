@@ -22,6 +22,5 @@ class ChildrenWatchingsController < ApplicationController
     @watching = @children_watching.watching
     @children_watching.destroy
     redirect_to watching_children_watchings_path(@watching)
-
   end
 end

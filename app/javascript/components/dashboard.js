@@ -1,3 +1,7 @@
+export { addChild }
+export { addAccount }
+export { loadingCharts }
+
 const addChild = () => {
   const addChildForm = document.querySelector(".child-add-form");
   const btnPlus = document.querySelector("#create-child");
@@ -24,42 +28,88 @@ const addAccount = () => {
   }
 }
 
-export { addChild }
+const loadingCharts = document.addEventListener('DOMContentLoaded', function () {
 
-
-
-
-
-
-
-
-const myTestHighCharts = document.addEventListener('DOMContentLoaded', function () {
-  const chart = Highcharts.chart('container', {
-    chart: {
-      type: 'bar'
-    },
+  // ci-dessous le tableau en colonnes :
+const lineChart = Highcharts.chart('line-chart-container', {
     title: {
-      text: 'Fruit Consumption'
-    },
-    xAxis: {
-      categories: ['Apples', 'Bananas', 'Oranges']
+      text: 'Minutes visionnées par enfant (8 derniers jours)'
     },
     yAxis: {
       title: {
-        text: 'Fruit eaten'
+        text: 'Temps (minutes)'
+      },
+    },
+    xAxis: {
+      categories: ['22-Nov', '23-Nov', '24-Nov', '25-Nov', '26-Nov', '27-Nov', '28-Nov', '29-Nov', '30-Nov', '01-Dec', '02-Dec', '03-Dec']
+    },
+    plotOptions: {
+      series: {
+        allowPointSelect: true
       }
     },
     series: [{
-      name: 'Jane',
-      data: [1, 0, 4]
+      name: 'Sidonie',
+      data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
     }, {
-      name: 'John',
-      data: [5, 7, 3]
+      name: 'Freya',
+      data: [130, 68, 105, 145, 16, 25, 13, 100, 25, 19, 95, 54]
+    }, {
+      name: 'Lukas',
+      data: [29, 7, 10, 129, 14, 17, 135, 14.5, 216, 23, 9, 55]
     }]
   });
+
+// fin du chart en colonnes
+
+// début du camembert :
+
+  const pieChart = Highcharts.chart('pie-chart-container', {
+    chart: {
+      type: 'pie'
+    },
+    title: {
+      text: 'Catégories par enfant'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: false
+        },
+        showInLegend: true
+      }
+    },
+    series: [{
+      name: 'Minutes visionnées',
+      colorByPoint: true,
+      data: [{
+        name: 'Documentaire',
+        y: 78,
+      }, {
+        name: 'Comédie',
+        y: 20.9,
+        // sliced: true,
+        // selected: true
+      }, {
+        name: 'Animation',
+        y: 10.5
+      }, {
+        name: 'Educatif',
+        y: 75
+      }, {
+        name: 'Aventure',
+        y: 120
+      }, {
+        name: 'Fantastique',
+        y: 27.5
+      }, {
+        name: 'Action',
+        y: 39
+      }]
+    }]
+  });
+ // fin du camembert
+
 });
-
-export { myTestHighCharts }
-
-export { addAccount }
-
