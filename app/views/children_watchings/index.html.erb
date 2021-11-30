@@ -1,7 +1,7 @@
-
+<h2>Qui participe à la séance ?</h2>
 <% current_user.children.each do |child| %>
   <% if child.watchings.where(id: params[:watching_id]).any?  %>
-    <%= link_to children_watching_path(child.children_watchings.find_by(watching: @watching)), method: :delete do %>
+    <%= link_to children_watching_path(child.find_child_watchings(@watching)), method: :delete do %>
       <%= cl_image_tag child.photo.key, class: "avatar-large border border-primary" %>
     <% end %>
     <%#= on affiche le avatar du sale gosse entouré de bleu %>
@@ -15,3 +15,11 @@
     <%#= on affiche le avatar sans cercle bleu %>
   <% end %>
 <% end %>
+<%#= lien vers la vidéo sur la plateforme %>
+<div class="btn-orange">
+  <% if @current_user.children_watchings.where(id: params[:watching_id]).nil? %>
+    "HELLO YOU "
+  <% else %>
+    <%= link_to "Votre séance !", @watching.program.program_url, :target => "_blank" %>
+  <% end %>
+</div>
