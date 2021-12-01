@@ -3,10 +3,10 @@
   <div class="general-kids-list">
     <% current_user.children.each do |c| %>
       <div class="general-kids-item">
-          <% if c.photo.attached? %>
-             <%= cl_image_tag c.photo.key, class: "avatar-large", alt: "avatar-large"%>
-          <% end %>
-       <%= link_to c.name, child_path(c),
+        <% if Rails.application.assets.resolve("avatars/#{c.image_url}.png").first %>
+          <%= image_tag "avatars/#{c.image_url}.png", class: "avatar-large", alt: "avatar-large"%>
+        <% end %>
+        <%= link_to c.name, child_path(c),
           method: :delete,
           data: { confirm: "êtes vous sûr(e) de vouloir supprimer cet enfant?" } %>
       </div>
@@ -17,7 +17,23 @@
     <%= simple_form_for child do |f| %>
       <%= f.input :name, label: "Prénom"%>
       <%= f.input :age %>
-      <%= f.input :image_url, as: :file %>
+      <%= f.input :image_url,
+                  as: :radio_buttons,
+                  collection:
+                    [
+                      [(image_tag 'avatars/avatar1.png'), 'avatar1'],
+                      [(image_tag 'avatars/avatar2.png'), 'avatar2'],
+                      [(image_tag 'avatars/avatar3.png'), 'avatar3'],
+                      [(image_tag 'avatars/avatar4.png'), 'avatar4'],
+                      [(image_tag 'avatars/avatar5.png'), 'avatar5'],
+                      [(image_tag 'avatars/avatar6.png'), 'avatar6'],
+                      [(image_tag 'avatars/avatar7.png'), 'avatar7'],
+                      [(image_tag 'avatars/avatar8.png'), 'avatar8']
+                    ],
+                  label_method: :first,
+                  value_method: :last,
+                  input_html: {data: {form_target: 'input'}, class: "avatar-large avatar-field"}
+      %>
       <%= f.button :submit %>
     <% end %>
   </div>
