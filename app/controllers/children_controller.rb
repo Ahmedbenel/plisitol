@@ -6,7 +6,6 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.create(children_params)
     @child.user = current_user
-    @child.photo.attach(children_params[:image_url])
     if @child.save
       redirect_to dashboard_path
     else
