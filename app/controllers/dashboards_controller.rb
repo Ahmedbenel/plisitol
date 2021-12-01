@@ -8,6 +8,6 @@ class DashboardsController < ApplicationController
     @child = Child.new
     @account = Account.new
     @data_child = JSON.generate(@children.first.calculate_cw_all_categories)
+    @line_data_child = JSON.generate(@children.calculate_cw_all_dates)
   end
-
 end

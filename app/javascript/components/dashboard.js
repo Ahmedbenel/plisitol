@@ -9,6 +9,13 @@ const childCamembert = () => {
   return dataJson;
 };
 
+const childLine = () => {
+  const dataChildId = document.querySelector("#line-chart-container");
+  const dataChildLine = dataChildId.getAttribute("data-set");
+  const dataJsonLine = JSON.parse(dataChildLine);
+  return dataJsonLine;
+};
+
 const addChild = () => {
   const addChildForm = document.querySelector(".child-add-form");
   const btnPlus = document.querySelector("#create-child");
@@ -73,7 +80,7 @@ const loadingCharts = () => {
         y: json.Educatif,
         sliced: true,
         selected: true
-      }, {
+        }, {
         name: 'Comédie',
         y: json.Comédie,
         }, {
@@ -93,5 +100,71 @@ const loadingCharts = () => {
         y: json.Aventure,
         }]
     }]
+  });
+  const jsonLine = childLine();
+  console.log(jsonLine);
+  Highcharts.chart('line-chart-container', {
+
+    title: {
+      text: 'Minutes passées à regarder des vidéos sur la période'
+    },
+
+    subtitle: {
+      text: '7 derniers jours'
+    },
+
+    yAxis: {
+      title: {
+        text: 'Temps (en minutes)'
+      }
+    },
+
+    xAxis: {
+      accessibility: {
+        rangeDescription: '8 derniers jours'
+      }
+    },
+
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+      series: {
+        label: {
+          connectorAllowed: false
+        },
+        pointStart: 0
+      }
+    },
+
+    series: [{
+      name: 'Sidonie',
+      data: [jsonLine.Sidonie[0], jsonLine.Sidonie[1], jsonLine.Sidonie[2], jsonLine.Sidonie[3], jsonLine.Sidonie[4], jsonLine.Sidonie[5], jsonLine.Sidonie[6], jsonLine.Sidonie[7]]
+    }, {
+      name: 'Freya',
+      data: [jsonLine.Freya[0], jsonLine.Freya[1], jsonLine.Freya[2], jsonLine.Freya[3], jsonLine.Freya[4], jsonLine.Freya[5], jsonLine.Freya[6], jsonLine.Freya[7]]
+    }, {
+      name: 'Lukas',
+      data: [jsonLine.Lukas[0], jsonLine.Lukas[1], jsonLine.Lukas[2], jsonLine.Lukas[3], jsonLine.Lukas[4], jsonLine.Lukas[5], jsonLine.Lukas[6], jsonLine.Lukas[7]]
+    }],
+
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          }
+        }
+      }]
+    }
+
   });
 };
