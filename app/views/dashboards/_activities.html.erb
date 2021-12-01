@@ -29,11 +29,22 @@
 
   <h4>Mes avis :</h4>
     <div class="activities-reviews-list">
-
-    <% if current_user.reviews.present? %>
+      <% if current_user.reviews.present? %>
         <% current_user.reviews.each do |review| %>
           <div class="activities-reviews-item">
-            <%= render 'programs/review' %>
+            <%#= render 'programs/review' %>
+            <div class="reviews-card">
+              <div class="user-review">
+                  <h4><%= review.username %></h4>
+                  <time datetime="#" class="card__date"><%= review.created_at %></time>
+              </div>
+              <div class="rating-review">
+                    <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                      <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+                    <% end %>
+                    <h3><%= review.content %></h3>
+              </div>
+            </div>
           </div>
         <% end %>
       <% end %>

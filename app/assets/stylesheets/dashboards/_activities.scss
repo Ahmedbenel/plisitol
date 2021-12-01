@@ -1,8 +1,10 @@
 .container-activities{
-  background-color: $light-orange;
+  background-color: $grey;
+  margin: 10px 30px;
 }
 .wrapper-activities{
-  background-color: $grey;
+  background-color: $light-orange;
+  padding: 3px;
 }
 .grid-program-activities {
   display: grid;
