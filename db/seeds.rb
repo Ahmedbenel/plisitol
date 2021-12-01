@@ -73,7 +73,7 @@ program = Program.create!(
   description: "Sous la houlette d'un garçon de 10 ans, une patrouille de six chiots héroïques accomplit des missions de sauvetage haletantes, avec beaucoup d'humour et d'intelligence.",
   category: 'Action',
   length: 23,
-  platform: Platform.all.sample,
+  platform: netflix,
   min_age: 6,
   max_age: 8,
   program_url: "https://www.netflix.com/watch/81045782?trackId=14170096&tctx=1%2C0%2Cf4ba40a3-f810-49e5-aa41-a67bd4f1ca44-42576721%2C645f4eac-8cd9-43a0-b0e6-56c327b80691_59700367X19XX1637683379498%2C%2C"
@@ -86,7 +86,7 @@ program = Program.create!(
   description: "T’choupi, l’ami des tout-petits, est curieux, enthousiaste, et tellement affectueux… Mais il peut également être boudeur et têtu ! Avec ses parents, ses amis et surtout son inséparable Doudou, il va faire de palpitantes découvertes à travers ses jeux… et ses bêtises !",
   category: 'Educatif',
   length: 5,
-  platform: Platform.all.sample,
+  platform: netflix,
   min_age: 3,
   max_age: 5,
   program_url: "https://www.netflix.com/watch/81101585?trackId=14170036&tctx=1%2C9%2Cf4ba40a3-f810-49e5-aa41-a67bd4f1ca44-41994387%2C645f4eac-8cd9-43a0-b0e6-56c327b80691_59700367X19XX1637683379498%2C%2C"
@@ -99,7 +99,7 @@ program = Program.create!(
   description: 'Cette série met en scène une famille de cochons, la famille Pig, et particulièrement la fille, Peppa, qui adore rire et sauter à pieds joints dans les flaques de boue.',
   category: 'Animation',
   length: 20,
-  platform: Platform.all.sample,
+  platform: netflix,
   min_age: 2,
   max_age: 4,
   program_url: "https://www.netflix.com/watch/81441579?trackId=254743534"
@@ -112,7 +112,7 @@ program = Program.create!(
   description: "Cette série est destinée aux enfants et aux adultes curieux du fonctionnement de leur corps. Elle raconte de façon vulgarisée l'architecture et la composition des différents types cellulaires, des tissus biologiques et des organes ainsi que leurs fonctions respectives. De plus, ces descriptions microscopiques des composants du corps s'intègrent dans des scénarios pédagogiques traitant plus globalement du développement du corps humain, de ses fonctions physiologiques principales, du cycle de la vie et de l'éducation à la santé.",
   category: 'Educatif',
   length: 25,
-  platform: Platform.all.sample,
+  platform: netflix,
   min_age: 7,
   max_age: 11,
   program_url: "https://www.betaseries.com/episode/ilaetaitunefoislavie/s01e01"
@@ -125,7 +125,7 @@ program = Program.create!(
   description: "Après s'être ignorés pendant 10 ans, Balthazar Picsou se réconcilie avec son neveu Donald Duck qui lui demande de surveiller ses trois neveux Riri, Fifi et Loulou. L'arrivée des trois jeunes canards réveille l'esprit d'aventures du multi-milliardaire qui décide de reprendre ses quêtes de trésors perdus, pendant que les trois garçons, avec l'aide de Zaza, la petite-fille de la gouvernante de Picsou, vont découvrir les raisons de la longue dispute entre Picsou et Donald.",
   category: 'Aventure',
   length: 22,
-  platform: Platform.all.sample,
+  platform: disney_plus,
   min_age: 8,
   max_age: 12,
   program_url: "https://www.betaseries.com/episode/ducktales-2017/s01e01"
@@ -138,7 +138,7 @@ program = Program.create!(
   description: "Une quête pour sauver son monde. Il y a de cela fort longtemps, au royaume imaginaire de Kumandra, humains et dragons vivaient en harmonie. Mais un jour, une force maléfique s’abattit sur le royaume et les dragons se sacrifièrent pour sauver l’humanité. Lorsque cette force réapparait cinq siècles plus tard, Raya, une guerrière solitaire, se met en quête du légendaire dernier dragon pour restaurer l’harmonie sur la terre de Kumandra, au sein d’un peuple désormais divisé. Commence pour elle un long voyage au cours duquel elle découvrira qu’il lui faudra bien plus qu’un dragon pour sauver le monde, et que la confiance et l’entraide seront essentiels pour conduire au succès cette périlleuse mission.",
   category: 'Aventure',
   length: 107,
-  platform: Platform.all.sample,
+  platform: disney_plus,
   min_age: 6,
   max_age: 120,
   program_url: "https://www.disneyplus.com/fr-fr/movies/raya-et-le-dernier-dragon/6dyengbx3iYK?irclickid=TZIV-jwZ4xyITxN1QhQVjUoNUkG2QqRZnVgVyc0&irgwc=1&cid=DSS-Affiliate-Impact-Content-BetaSeries-692369"
@@ -151,7 +151,7 @@ program = Program.create!(
   description: "La célébration de toute une vie. Malgré la décevante absence totale de musique dans sa famille depuis des générations, Miguel rêve de devenir un grand musicien comme son idole Ernesto de la Cruz. Désespéré de pouvoir un jour montrer ses talents, il se retrouve à la suite d’un mystérieux enchaînement d’évènements dans l’incroyable et coloré Royaume des Morts. Sur sa route, il rencontre l’escroc charmeur Hector et ensemble, ils partent pour un voyage extraordinaire pour découvrir la véritable histoire cachée de la famille de Miguel.",
   category: 'Fantastique',
   length: 110,
-  platform: Platform.all.sample,
+  platform: canal_plus,
   min_age: 10,
   max_age: 120,
   program_url: "https://www.canalplus.com/cinema/coco/h/15058385_50269"
@@ -164,7 +164,7 @@ program = Program.create!(
   description: "L’aventure la plus étonnante et innovante de tous les temps ! Le facétieux professeur Wayne Szalinski a encore transformé sa maison en un vaste laboratoire et sa famille en cobayes. Sa dernière trouvaille : un rayon laser, capable de rétrécir les objets. Ses enfants, Amy et Nick, ainsi que leurs copains, Ron et Russ, en font malencontreusement l’expérience. Les voici réduits à la taille du Petit Poucet, confrontés à la jungle du jardin, où le moindre brin d’herbe prend des allures de baobab.",
   category: 'Comédie',
   length: 94,
-  platform: Platform.all.sample,
+  platform: disney_plus,
   min_age: 7,
   max_age: 120,
   program_url: "https://www.disneyplus.com/fr-fr/movies/cherie-jai-retreci-les-gosses/53dNy2VPeJ8O?irclickid=TZIV-jwZ4xyITxN1QhQVjUoNUkG2QJVBnVgVyc0&irgwc=1&cid=DSS-Affiliate-Impact-Content-BetaSeries-692369"
@@ -177,7 +177,7 @@ program = Program.create!(
   description: "Guerre et paix dans le potager est un documentaire de 2006. Le premier épisode se déroule d’avril à août. Le deuxième épisode d’août à novembre. Des effets à expliquer aux plus petits, les accélérations du temps par les caméras, le jeu des proportions (insectes géants ou hommes vus en contre plongée pour donner des effets de taille). Il n’y a que 4 protagonistes humains, la famille qui jardine, deux adultes, deux enfants. Le reste des personnages sont les différents (et multiples) insectes qui peuplent leur potager.",
   category: 'Documentaire',
   length: 52,
-  platform: Platform.all.sample,
+  platform: youtube,
   min_age: 5,
   max_age: 120,
   program_url: "https://www.youtube.com/watch?v=8C00YQBOyt4"
@@ -190,12 +190,25 @@ program = Program.create!(
   description: "Il est gros comme un ours, fort comme un ours, intelligent... comme un ours. Aucun animal, c'est sûr, n'oserait contester ses privilèges dans toute la faune du Canada. A l'exception près d’un groupe issu de la famille la plus inoffensive, stupide et ridicule de tous les mammifères : les lemmings.",
   category: 'Animation',
   length: 7,
-  platform: Platform.all.sample,
+  platform: netflix,
   min_age: 3,
   max_age: 7,
   program_url: "https://www.netflix.com/watch/81154175?trackId=14839166&tctx=-97%2C-97%2C%2C%2C%2C"
 )
 program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/21638_1563645766.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
+program.save!
+
+program = Program.create!(
+  title: 'Masha et Michka',
+  description: "La guillerette petite Masha vit de belles aventures dans la forêt avec son meilleur ami, un ancien ours de cirque.",
+  category: 'Animation',
+  length: 23,
+  platform: netflix,
+  min_age: 2,
+  max_age: 9,
+  program_url: "https://www.netflix.com/watch/80224093?trackId=13752289"
+)
+program.photo.attach(io: URI.open('https://toulouse.kidiklik.fr/images/agendas/32_5a7b3516a94c2.png'), filename: 'file.jpg', content_type: 'image/jpg')
 program.save!
 
 puts 'Creating fake watchings...'
