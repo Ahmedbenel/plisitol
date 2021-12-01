@@ -2,6 +2,20 @@ export { addChild }
 export { addAccount }
 export { loadingCharts }
 
+const childCamembert = () => {
+  const dataChildDiv = document.querySelector("#pie-chart-container");
+  const dataChild = dataChildDiv.getAttribute("data-set");
+  const dataJson = JSON.parse(dataChild);
+  return dataJson;
+};
+
+const childLine = () => {
+  const dataChildId = document.querySelector("#line-chart-container");
+  const dataChildLine = dataChildId.getAttribute("data-set");
+  const dataJsonLine = JSON.parse(dataChildLine);
+  return dataJsonLine;
+};
+
 const addChild = () => {
   const addChildForm = document.querySelector(".child-add-form");
   const btnPlus = document.querySelector("#create-child");
@@ -28,88 +42,129 @@ const addAccount = () => {
   }
 }
 
-const loadingCharts = document.addEventListener('DOMContentLoaded', function () {
-
-  // ci-dessous le tableau en colonnes :
-const lineChart = Highcharts.chart('line-chart-container', {
-    title: {
-      text: 'Minutes visionnées par enfant (8 derniers jours)'
-    },
-    yAxis: {
-      title: {
-        text: 'Temps (minutes)'
-      },
-    },
-    xAxis: {
-      categories: ['22-Nov', '23-Nov', '24-Nov', '25-Nov', '26-Nov', '27-Nov', '28-Nov', '29-Nov', '30-Nov', '01-Dec', '02-Dec', '03-Dec']
-    },
-    plotOptions: {
-      series: {
-        allowPointSelect: true
-      }
-    },
-    series: [{
-      name: 'Sidonie',
-      data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-    }, {
-      name: 'Freya',
-      data: [130, 68, 105, 145, 16, 25, 13, 100, 25, 19, 95, 54]
-    }, {
-      name: 'Lukas',
-      data: [29, 7, 10, 129, 14, 17, 135, 14.5, 216, 23, 9, 55]
-    }]
-  });
-
-// fin du chart en colonnes
-
-// début du camembert :
-
-  const pieChart = Highcharts.chart('pie-chart-container', {
+const loadingCharts = () => {
+  const json = childCamembert();
+  Highcharts.chart('pie-chart-container', {
     chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
       type: 'pie'
     },
     title: {
-      text: 'Catégories par enfant'
+      text: 'Catégories regardées sur la période'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+      point: {
+        valueSuffix: '%'
+      }
     },
     plotOptions: {
       pie: {
         allowPointSelect: true,
         cursor: 'pointer',
         dataLabels: {
-          enabled: false
-        },
-        showInLegend: true
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        }
       }
     },
     series: [{
-      name: 'Minutes visionnées',
+      name: 'Catégorie',
       colorByPoint: true,
       data: [{
-        name: 'Documentaire',
-        y: 78,
-      }, {
-        name: 'Comédie',
-        y: 20.9,
-        // sliced: true,
-        // selected: true
-      }, {
-        name: 'Animation',
-        y: 10.5
-      }, {
         name: 'Educatif',
-        y: 75
-      }, {
-        name: 'Aventure',
-        y: 120
-      }, {
-        name: 'Fantastique',
-        y: 27.5
-      }, {
+        y: json.Educatif,
+        sliced: true,
+        selected: true
+        }, {
+        name: 'Comédie',
+        y: json.Comédie,
+        }, {
+        name: 'Documentaire',
+        y: json.Documentaire,
+        }, {
         name: 'Action',
-        y: 39
-      }]
+        y: json.Action,
+        }, {
+        name: 'Fantastique',
+        y: json.Fantastique,
+        }, {
+        name: 'Animation',
+        y: json.Animation,
+        }, {
+        name: 'Aventure',
+        y: json.Aventure,
+        }]
     }]
   });
- // fin du camembert
+  const jsonLine = childLine();
+  console.log(jsonLine);
+  Highcharts.chart('line-chart-container', {
 
-});
+    title: {
+      text: 'Minutes passées à regarder des vidéos sur la période'
+    },
+
+    subtitle: {
+      text: '7 derniers jours'
+    },
+
+    yAxis: {
+      title: {
+        text: 'Temps (en minutes)'
+      }
+    },
+
+    xAxis: {
+      accessibility: {
+        rangeDescription: '8 derniers jours'
+      }
+    },
+
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+      series: {
+        label: {
+          connectorAllowed: false
+        },
+        pointStart: 0
+      }
+    },
+
+    series: [{
+      name: 'Sidonie',
+      data: [jsonLine.Sidonie[0], jsonLine.Sidonie[1], jsonLine.Sidonie[2], jsonLine.Sidonie[3], jsonLine.Sidonie[4], jsonLine.Sidonie[5], jsonLine.Sidonie[6], jsonLine.Sidonie[7]]
+    }, {
+      name: 'Freya',
+      data: [jsonLine.Freya[0], jsonLine.Freya[1], jsonLine.Freya[2], jsonLine.Freya[3], jsonLine.Freya[4], jsonLine.Freya[5], jsonLine.Freya[6], jsonLine.Freya[7]]
+    }, {
+      name: 'Lukas',
+      data: [jsonLine.Lukas[0], jsonLine.Lukas[1], jsonLine.Lukas[2], jsonLine.Lukas[3], jsonLine.Lukas[4], jsonLine.Lukas[5], jsonLine.Lukas[6], jsonLine.Lukas[7]]
+    }],
+
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          }
+        }
+      }]
+    }
+
+  });
+};

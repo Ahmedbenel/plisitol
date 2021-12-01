@@ -22,4 +22,26 @@ class Child < ApplicationRecord
     end
     lengths.reduce(&:+)
   end
+
+  def self.calculate_cw_all_dates
+    times_by_child = {}
+    Child.all.each do |child|
+      times = []
+      i = 7
+      8.times do
+        times << child.calculate_watching_by_date(Date.today - i)
+        i -= 1
+      end
+      times_by_child[child.name] = times
+    end
+    times_by_child
+  end
+
+  def calculate_cw_all_categories
+    categories = {}
+    Program::CATEGORY.each do |category|
+      categories[category] = self.calculate_watching_by_category(category)
+    end
+    categories
+  end
 end
