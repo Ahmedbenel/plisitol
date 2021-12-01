@@ -22,4 +22,12 @@ class Child < ApplicationRecord
     end
     lengths.reduce(&:+)
   end
+
+  def calculate_cw_all_categories
+    categories = {}
+    Program::CATEGORY.each do |category|
+      categories[category] = self.calculate_watching_by_category(category)
+    end
+    categories
+  end
 end

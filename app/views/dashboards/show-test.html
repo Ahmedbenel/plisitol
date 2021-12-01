@@ -1,0 +1,28 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+      aria-selected="true">Général</a>
+    <a class="nav-link" id="nav-activities-tab" data-toggle="tab" href="#nav-activities" role="tab"
+      aria-controls="nav-activities" aria-selected="false">Activités</a>
+    <a class="nav-link" id="nav-stats-tab" data-toggle="tab" href="#nav-stats" role="tab" aria-controls="nav-stats"
+      aria-selected="false">Statistiques</a>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <%= render 'general' , child: @child %>
+  </div>
+  <div class="tab-pane fade" id="nav-activities" role="tabpanel" aria-labelledby="nav-activities-tab">
+    <%= render 'activities' , account: @account %>
+  </div>
+  <div class="tab-pane fade" id="nav-stats" role="tabpanel" aria-labelledby="nav-stats-tab">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <div id="line-chart-container" style="height:400px"></div>
+
+
+    <div id="pie-chart-container" class="data-child-div"
+      style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto" data-set="<%= @data_child %>"></div>
+
+  </div>
+</div>

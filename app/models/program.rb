@@ -1,5 +1,5 @@
 class Program < ApplicationRecord
-  CATEGORY = ["documentaire", "comédie", "animation", "educatif", "aventure", "fantastique", "action"]
+  CATEGORY = ["Documentaire", "Comédie", "Animation", "Educatif", "Aventure", "Fantastique", "Action"]
   LENGTH = ["0-25", "25-50", "50-100", "100-200"]
 
   belongs_to :platform

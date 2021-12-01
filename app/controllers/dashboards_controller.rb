@@ -7,5 +7,7 @@ class DashboardsController < ApplicationController
     @children = current_user.children
     @child = Child.new
     @account = Account.new
+    @data_child = JSON.generate(@children.first.calculate_cw_all_categories)
   end
+
 end
