@@ -1,21 +1,30 @@
 <div class="container-activities">
 
   <h4>Mon historique :</h4>
-    <div class="activities-watchings-list">
-      <% current_user.watchings.each do |watching| %>
-        <div class="activities-watchings-item">
-            <%= watching.program.title %>
-        </div>
-      <% end %>
+    <div class="wrapper-activities">
+      <div class="grid-program-activities">
+        <% current_user.watchings.each do |watching| %>
+          <div class="card-program-activities" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path watching.program.photo.key, crop: :fill %>')" >
+              <h4>
+                <%= watching.program.title %>
+              </h4>
+            <div class="watch-date"><%= watching.created_at %></div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
   <h4>Mes favoris :</h4>
-    <div class="activities-favorites-list">
-      <% current_user.favorites.each do |favorite| %>
-        <div class="activities-favorites-item">
-          <%= favorite.program.title %>
-        </div>
-      <% end %>
+    <div class="wrapper-activities">
+      <div class="grid-program-activities">
+        <% current_user.favorites.each do |favorite| %>
+          <div class="card-program-activities" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path favorite.program.photo.key, crop: :fill %>')" >
+            <h4>
+              <%= favorite.program.title %>
+            </h4>
+          </div>
+        <% end %>
+      </div>
     </div>
 
   <h4>Mes avis :</h4>
