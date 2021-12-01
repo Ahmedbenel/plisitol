@@ -3,8 +3,10 @@
   <div class="general-kids-list">
     <% current_user.children.each do |c| %>
       <div class="general-kids-item">
-        <% if Rails.application.assets.resolve("avatars/#{c.image_url}.png").first %>
-          <%= image_tag "avatars/#{c.image_url}.png", class: "avatar-large", alt: "avatar-large"%>
+        <% if Rails.application.assets.present? %>
+          <% if Rails.application.assets.resolve("avatars/#{c.image_url}.png").first %>
+            <%= image_tag "avatars/#{c.image_url}.png", class: "avatar-large", alt: "avatar-large"%>
+          <% end %>
         <% end %>
         <%= link_to c.name, child_path(c),
           method: :delete,
