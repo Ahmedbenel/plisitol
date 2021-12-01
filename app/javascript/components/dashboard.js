@@ -45,7 +45,7 @@ const loadingCharts = () => {
       type: 'pie'
     },
     title: {
-      text: 'Browser market shares in January, 2018'
+      text: 'Catégories regardées sur la période'
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -66,17 +66,32 @@ const loadingCharts = () => {
       }
     },
     series: [{
-      name: 'Brands',
+      name: 'Catégorie',
       colorByPoint: true,
       data: [{
-        name: 'Comédie',
-        y: json.Comédie,
+        name: 'Educatif',
+        y: json.Educatif,
         sliced: true,
         selected: true
       }, {
-        name: 'Educatif',
-        y: json.Educatif
-      }]
+        name: 'Comédie',
+        y: json.Comédie,
+        }, {
+        name: 'Documentaire',
+        y: json.Documentaire,
+        }, {
+        name: 'Action',
+        y: json.Action,
+        }, {
+        name: 'Fantastique',
+        y: json.Fantastique,
+        }, {
+        name: 'Animation',
+        y: json.Animation,
+        }, {
+        name: 'Aventure',
+        y: json.Aventure,
+        }]
     }]
   });
 };
