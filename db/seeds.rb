@@ -12,6 +12,8 @@ Child.destroy_all
 User.destroy_all
 Program.destroy_all
 Platform.destroy_all
+Watching.destroy_all
+ChildrenWatching.destroy_all
 
 puts 'Creating 1 fake user...'
 user = User.create!(email: 'user@plisitol.com', password: 'secret', username: "Anne O'Nyme")
