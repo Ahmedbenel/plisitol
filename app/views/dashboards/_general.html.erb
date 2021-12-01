@@ -3,6 +3,9 @@
   <div class="general-kids-list">
     <% current_user.children.each do |c| %>
       <div class="general-kids-item">
+          <% if c.photo.attached? %>
+             <%= cl_image_tag c.photo.key, class: "avatar-large", alt: "avatar-large"%>
+          <% end %>
        <%= link_to c.name, child_path(c),
           method: :delete,
           data: { confirm: "êtes vous sûr(e) de vouloir supprimer cet enfant?" } %>
