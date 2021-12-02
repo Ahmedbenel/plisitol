@@ -13,8 +13,12 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/searchbar' %>
-    <%= yield %>
+
+    <div class="bg-wrapper">
+      <div class="wrapper">
+        <%= yield %>
+      </div>
+    </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
 

@@ -2,19 +2,19 @@
     <div class="home-form">
       <%= simple_form_for :request, url: programs_path, method: :get do |f| %>
         <div class="home-form-text-field">
-        <%= f.input :description, placeholder: "Titre, description...", label: false, required: false, input_html: { autocomplete: "description" } %>
+        <%= f.input :title, placeholder: "Titre", label: false, required: false, input_html: { autocomplete: "Titre" } %>
         </div>
         <div class="home-form-categ-field">
         <%= f.input :category, collection: Program::CATEGORY, prompt: "Catégorie", label: false, required: false %>
         </div>
         <div class="home-form-age-field col-3">
-        <%= f.input :min_age, label: false, placeholder: "À partir de...", as: :numeric, input_html: { min: 0 }, required: false %>
+        <%= f.input :max_age, label: false, placeholder: "À partir de...", as: :numeric, input_html: { min: 0 }, required: false %>
         </div>
         <div class="home-form-length-field">
         <%= f.input :length, collection: Program::LENGTH, prompt: "Durée", label: false, required: false %>
         </div>
         <div class="home-form-submit-btn">
-          <%= button_tag type: 'submit' do %>
+          <%= button_tag type: 'submit', class: 'button-search' do %>
             <i class="fas fa-search"></i>
           <% end %>
         </div>

@@ -12,7 +12,7 @@
 
 .home-form {
   display: flex;
-  background-color: $grey;
+  background-color: $light-orange;
   border-radius: 50px;
   border: solid 1px $dark-blue;
   margin: 10px;
@@ -46,7 +46,7 @@
   color: $dark-blue;
 }
 
-button {
-  background-color: $grey;
+.button-search {
+  background-color: $light-orange;
   color: $light-blue;
 }
