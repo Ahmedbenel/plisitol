@@ -2,12 +2,6 @@ export { addChild }
 export { addAccount }
 export { loadingCharts }
 
-const childCamembert = () => {
-  const dataChildDiv = document.querySelector("#pie-chart-container");
-  const dataChild = dataChildDiv.getAttribute("data-set");
-  const dataJson = JSON.parse(dataChild);
-  return dataJson;
-};
 
 const childLine = () => {
   const dataChildId = document.querySelector("#line-chart-container");
@@ -43,8 +37,14 @@ const addAccount = () => {
 }
 
 const loadingCharts = () => {
-  const json = childCamembert();
-  Highcharts.chart('pie-chart-container', {
+  const children = document.querySelectorAll('.pie-chart')
+  children.forEach((child) => { pieChart(child) })
+  lineChart();
+};
+
+const pieChart = (child) => {
+  const json = JSON.parse(child.dataset.categories);
+  Highcharts.chart(child.id, {
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,
@@ -52,7 +52,7 @@ const loadingCharts = () => {
       type: 'pie'
     },
     title: {
-      text: 'Catégories regardées sur la période'
+      text: ''
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -67,13 +67,14 @@ const loadingCharts = () => {
         allowPointSelect: true,
         cursor: 'pointer',
         dataLabels: {
-          enabled: true,
+          enabled: false,
           format: '<b>{point.name}</b>: {point.percentage:.1f} %'
         }
       }
     },
+
     series: [{
-      name: 'Catégorie',
+      name: "Part de temps d'écran",
       colorByPoint: true,
       data: [{
         name: 'Educatif',
@@ -98,9 +99,13 @@ const loadingCharts = () => {
         }, {
         name: 'Aventure',
         y: json.Aventure,
-        }]
+        }],
+        showInLegend: true
     }]
   });
+}
+
+const lineChart = () => {
   const jsonLine = childLine();
   console.log(jsonLine);
   Highcharts.chart('line-chart-container', {
@@ -110,7 +115,7 @@ const loadingCharts = () => {
     },
 
     title: {
-      text: 'Minutes passées à regarder des vidéos sur la période'
+      text: "Temps d'écran sur la période"
     },
 
     subtitle: {
@@ -190,6 +195,5 @@ const loadingCharts = () => {
         }
       }]
     }
-
   });
-};
+}

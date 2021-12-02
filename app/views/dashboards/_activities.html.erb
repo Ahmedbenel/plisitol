@@ -1,21 +1,22 @@
-<div class="container-activities">
-
-  <h4>Mon historique :</h4>
+<div class="container-activities my-5 pb-5 bg-grey">
+  <h4 class="text-center py-5 wrapper-title">Mon historique :</h4>
     <div class="wrapper-activities">
       <div class="grid-program-activities">
-        <% current_user.watchings.each do |watching| %>
-          <div class="card-program-activities" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path watching.program.photo.key, crop: :fill %>')" >
+        <% current_user.watchings&.group_by{ |w| w.program_id}&.values&.each do |watchings| %>
+          <div class="card-program-activities" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path watchings.last.program.photo.key, crop: :fill %>')" >
               <h4>
-                <%= watching.program.title %>
+                <%= watchings.last.program.title %>
               </h4>
-            <div class="watch-date"><%= watching.created_at %></div>
+              <p><%= watchings.count %> vues </p>
+            <div class="watch-date"><%= watchings.last.created_at.strftime("%d/%m/%y") %></div>
           </div>
         <% end %>
       </div>
-    </div>
+  </div>
+</div>
 
-  <h4>Mes favoris :</h4>
-    <div class="wrapper-activities">
+  <div class="wrapper-activities bg-grey pb-5">
+    <h4 class="text-center py-5 wrapper-title">Mes favoris :</h4>
       <div class="grid-program-activities">
         <% current_user.favorites.each do |favorite| %>
           <div class="card-program-activities" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path favorite.program.photo.key, crop: :fill %>')" >
@@ -27,26 +28,29 @@
       </div>
     </div>
 
-  <h4>Mes avis :</h4>
-    <div class="activities-reviews-list">
+  <div class="activities-reviews-list pb-5 bg-grey">
+    <h4 class="text-center py-5 mt-5 wrapper-title">Mes avis :</h4>
       <% if current_user.reviews.present? %>
-        <% current_user.reviews.each do |review| %>
-          <div class="activities-reviews-item">
-            <div class="reviews-card">
-              <div class="user-review">
-                  <h4><%= review.username %></h4>
-                  <time datetime="#" class="card__date"><%= review.created_at %></time>
-              </div>
-              <div class="rating-review">
+        <div class="wrapper-activities">
+          <div class="grid-reviews-activities">
+            <% current_user.reviews.each do |review| %>
+
+            <div class="card text-center review-card" style="width: 18rem;">
+              <%= cl_image_tag review.program.photo.key, class: "card-img-top" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= review.program.title %></h5>
+                <time datetime="#" class="card__date"><%= review.created_at %></time>
+                <div class="rating-review">
+                    <p class="card-text"><%= review.content %></p>
+
                     <% Review::AUTHORIZED_RATINGS.each do |number| %>
                       <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
                     <% end %>
-                    <h3><%= review.content %></h3>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
       <% end %>
-    </div>
-
-</div>
+          </div>
+        </div>
+      <% end %>
+  </div>

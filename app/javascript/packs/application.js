@@ -35,7 +35,13 @@ document.addEventListener('turbolinks:load', () => {
   dynamicRating();
   addChild();
   addAccount();
-  if (document.querySelector("#pie-chart-container")) {
+
+
+  $('#nav-stats-tab').on('click', function (event) {
+    event.preventDefault()
     loadingCharts();
-  }
+    $(this).tab('show')
+  })
+
+
 });
