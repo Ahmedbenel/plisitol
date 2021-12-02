@@ -26,7 +26,7 @@ class ProgramsController < ApplicationController
       sql_query = "programs.max_age <= :max_age"
       @programs = @programs.where(sql_query, max_age: max_age)
     else
-      session[:search][:min_age] = nil
+      session[:search][:max_age] = nil
     end
     if !(params[:request][:length].blank?)
       session[:search][:length] = params[:request][:length]
