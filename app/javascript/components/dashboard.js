@@ -52,7 +52,7 @@ const pieChart = (child) => {
       type: 'pie'
     },
     title: {
-      text: 'Catégories regardées sur la période'
+      text: ''
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -67,13 +67,14 @@ const pieChart = (child) => {
         allowPointSelect: true,
         cursor: 'pointer',
         dataLabels: {
-          enabled: true,
+          enabled: false,
           format: '<b>{point.name}</b>: {point.percentage:.1f} %'
         }
       }
     },
+
     series: [{
-      name: 'Catégorie',
+      name: "Part de temps d'écran",
       colorByPoint: true,
       data: [{
         name: 'Educatif',
@@ -98,7 +99,8 @@ const pieChart = (child) => {
         }, {
         name: 'Aventure',
         y: json.Aventure,
-        }]
+        }],
+        showInLegend: true
     }]
   });
 }
@@ -113,7 +115,7 @@ const lineChart = () => {
     },
 
     title: {
-      text: 'Minutes passées à regarder des vidéos sur la période'
+      text: "Temps d'écran sur la période"
     },
 
     subtitle: {
