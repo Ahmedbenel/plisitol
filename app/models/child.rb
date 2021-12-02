@@ -34,7 +34,7 @@ class Child < ApplicationRecord
       end
       times_by_child[child.name] = times
     end
-    times_by_child
+    JSON.generate(times_by_child)
   end
 
   def calculate_cw_all_categories
@@ -42,6 +42,6 @@ class Child < ApplicationRecord
     Program::CATEGORY.each do |category|
       categories[category] = self.calculate_watching_by_category(category)
     end
-    categories
+    JSON.generate(categories)
   end
 end

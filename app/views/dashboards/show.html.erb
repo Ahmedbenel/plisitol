@@ -20,13 +20,21 @@
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-        <figure class="highcharts-line-chart">
-            <div id="line-chart-container" data-set="<%= @line_data_child %>"></div>
-        </figure>
 
-        <figure class="highcharts-figure">
-            <div id="pie-chart-container" data-set="<%= @data_child %>"></div>
-        </figure>
+    <div class="d-flex justify-content-around mt-3">
+    <% @children.each do |child| %>
+    <div>
+      <h3><%= child.name %></h3>
+      <figure class="highcharts-figure">
+          <div id="pie-chart-container-<%= child.id %>" class="pie-chart" data-categories="<%= child.calculate_cw_all_categories %>"></div>
+      </figure>
+    </div>
+    <% end %>
+    </div>
+
+    <figure class="highcharts-line-chart mt-3">
+        <div id="line-chart-container" data-set="<%= @children.calculate_cw_all_dates %>"></div>
+    </figure>
 
       </div>
     </div>
