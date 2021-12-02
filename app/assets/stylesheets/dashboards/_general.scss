@@ -21,3 +21,15 @@
 .active {
   display: block;
 }
+
+.avatar-form .form-group {
+  display: flex;
+  width: 294px;
+  flex-wrap: wrap;
+
+  img {
+    width: 74px;
+    height: 74px;
+    object-fit: cover;
+  }
+}
