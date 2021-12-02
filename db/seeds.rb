@@ -17,7 +17,7 @@ ChildrenWatching.destroy_all
 
 puts 'Creating 1 fake user...'
 user = User.create!(email: 'user@plisitol.com', password: 'secret', username: "Anne O'Nyme")
-user.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
+user.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638468048/production/pexels-daniel-xavier-1239288_akryaw-Circle_xg2n0y.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 user.save!
 
 puts 'Creating 3 fake children...'
