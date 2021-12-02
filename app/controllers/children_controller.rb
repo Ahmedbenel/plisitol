@@ -5,6 +5,7 @@ class ChildrenController < ApplicationController
 
   def create
     @child = Child.create(children_params)
+    # raise
     @child.user = current_user
     if @child.save
       redirect_to dashboard_path
