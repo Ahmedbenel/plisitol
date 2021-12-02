@@ -1,14 +1,14 @@
 .container-activities{
   background-color: $grey;
-  margin: 10px 30px;
+  // margin: 10px 0px;
 }
 .wrapper-activities{
-  background-color: $light-orange;
-  padding: 3px;
+  background-color: $grey;
+  // padding: 3px;
 }
 .grid-program-activities {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin: 30px;
 }

@@ -1,19 +1,24 @@
 <div class="general-wrap">
-<h4>Enfants hébergés sur mon compte :</h4>
-  <div class="general-kids-list">
-    <% current_user.children.each do |c| %>
-      <div class="general-kids-item">
+<div class="bg-grey my-5">
+<h4 class="text-center py-5 wrapper-title">Enfants hébergés sur mon compte :</h4>
+  <div class="general-kids-list align-items-start">
+    <% current_user.children.each do |child| %>
+      <div class="general-kids-item text-center">
         <%# if Rails.application.assets.present? %>
           <%# if Rails.application.assets.resolve("avatars/#{c.image_url}.png").first %>
-            <%= image_tag "avatars/#{c.image_url}", class: "avatar-large", alt: "avatar-large"%>
+            <%#= image_tag "avatars/#{c.image_url}", class: "avatar-large", alt: "avatar-large"%>
+            <%= image_tag "avatars/#{child.image_url}", class: "avatar-large", alt: "avatar-large"%>
+            <h3><%= child.name %></h3>
           <%# end %>
         <%# end %>
-        <%= link_to c.name, child_path(c),
+        <%= link_to child_path(child),
           method: :delete,
-          data: { confirm: "êtes vous sûr(e) de vouloir supprimer cet enfant?" } %>
+          data: { confirm: "êtes vous sûr(e) de vouloir supprimer cet enfant?" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
       </div>
     <% end %>
-  <button id="create-child"><i class="fas fa-plus-circle"></i></button>
+  <button id="create-child"><i class="fas fa-plus-circle cross"></i></button>
 
   <div class="child-add-form disable">
     <%= simple_form_for child do |f| %>
@@ -42,24 +47,27 @@
     <% end %>
   </div>
   </div>
-
-<h4>Mes comptes :</h4>
+</div>
+<div class="bg-grey my-5 pb-5">
+<h4 class="text-center py-5 wrapper-title">Mes comptes :</h4>
   <div class="general-accounts-list">
   <% current_user.platforms.each do |p| %>
     <div class="general-accounts-item">
-      <%= link_to p.name, account_path(current_user.accounts.find_by(platform: p)),
+      <%= link_to account_path(current_user.accounts.find_by(platform: p)),
           method: :delete,
-          data: { confirm: "êtes vous sûr(e) de vouloir supprimer ce compte?" } %>
+          data: { confirm: "êtes vous sûr(e) de vouloir supprimer ce compte?" } do %>
+          <%= cl_image_tag(p.photo.key, class: "platform-avatar") %>
+      <% end %>
     </div>
   <% end %>
-<button id="add-account"><i class="fas fa-plus-circle"></i></button>
+<button id="add-account"><i class="fas fa-plus-circle cross"></i></button>
 
-  <div class="account-add-form disable">
+  <div class="account-add-form border-blue p-3 disable">
     <%= simple_form_for @account do |f| %>
-      <%= f.association :platform %>
-      <%= f.button :submit %>
+      <%= f.association :platform, label: false, prompt: "Compte" %>
+      <%= f.button :submit, "Ajouter un compte", class: "btn btn-warning" %>
     <% end %>
   </div>
   </div>
-
+</div>
 </div>

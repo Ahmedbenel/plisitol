@@ -36,3 +36,39 @@ input, button, submit { border:none; }
   width: 1000px;
   min-height: 100vh;
 }
+
+.bg-white {
+  background: white;
+}
+
+.bg-grey {
+  background: $grey;
+}
+
+.wrapper-title {
+  font-family: 'Carter One';
+  color: $light-blue;
+}
+
+h3 {
+  color: $light-blue;
+}
+
+.cross {
+  color: lightgrey;
+  font-size: 100px;
+}
+
+.border-blue {
+  border: solid 1px $light-blue;
+  border-radius: 5px;
+}
+
+.review-card {
+  border-radius: 5px;
+  img {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}

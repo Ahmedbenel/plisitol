@@ -37,3 +37,31 @@
 .general-wrap {
   min-height: 100vh;
 }
+
+.platform-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.tier-nav {
+  text-align: center;
+  width: 33%;
+  background: $grey;
+}
+
+.tier-nav-plus-one {
+  text-align: center;
+  width: 34%;
+  background: $grey;
+}
+
+.nav-link.active {
+  background: $dark-blue !important;
+}
+
+.nav-link:hover {
+  background: $orange;
+}

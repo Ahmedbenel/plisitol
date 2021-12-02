@@ -1,40 +1,49 @@
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Général</a>
-        <a class="nav-link" id="nav-activities-tab" data-toggle="tab" href="#nav-activities" role="tab" aria-controls="nav-activities" aria-selected="false">Activités</a>
-        <a class="nav-link" id="nav-stats-tab" data-toggle="tab" href="#nav-stats" role="tab" aria-controls="nav-stats" aria-selected="false">Statistiques</a>
-      </div>
-    </nav>
+  <div class="bg-wrapper py-5">
+    <div class="wrapper">
 
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <%= render 'general', child: @child %>
-      </div>
-      <div class="tab-pane fade" id="nav-activities" role="tabpanel" aria-labelledby="nav-activities-tab">
-        <%= render 'activities', account: @account %>
-      </div>
-      <div class="tab-pane fade" id="nav-stats" role="tabpanel" aria-labelledby="nav-stats-tab">
-        <script src="https://code.highcharts.com/modules/series-label.js"></script>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-link tier-nav active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Général</a>
+            <a class="nav-link tier-nav-plus-one" id="nav-activities-tab" data-toggle="tab" href="#nav-activities" role="tab" aria-controls="nav-activities" aria-selected="false">Activités</a>
+            <a class="nav-link tier-nav" id="nav-stats-tab" data-toggle="tab" href="#nav-stats" role="tab" aria-controls="nav-stats" aria-selected="false">Statistiques</a>
+          </div>
+        </nav>
 
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <%= render 'general', child: @child %>
+          </div>
+          <div class="tab-pane fade" id="nav-activities" role="tabpanel" aria-labelledby="nav-activities-tab">
+            <%= render 'activities', account: @account %>
+          </div>
+          <div class="tab-pane fade" id="nav-stats" role="tabpanel" aria-labelledby="nav-stats-tab">
+            <script src="https://code.highcharts.com/modules/series-label.js"></script>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <script src="https://code.highcharts.com/modules/export-data.js"></script>
+            <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-    <div class="d-flex justify-content-around mt-3">
-    <% @children.each do |child| %>
-    <div>
-      <h3><%= child.name %></h3>
-      <figure class="highcharts-figure">
-          <div id="pie-chart-container-<%= child.id %>" class="pie-chart" data-categories="<%= child.calculate_cw_all_categories %>"></div>
-      </figure>
+      <div class="bg-white mt-5">
+        <h4 class="text-center py-5 wrapper-title">Statistiques:</h4>
+        <div class="d-flex justify-content-around">
+          <% @children.each do |child| %>
+          <div class="text-center">
+            <%= image_tag "avatars/#{child.image_url}", class: "avatar-large", alt: "avatar-large"%>
+            <h3><%= child.name %></h3>
+            <figure class="highcharts-figure">
+                <div id="pie-chart-container-<%= child.id %>" class="pie-chart" data-categories="<%= child.calculate_cw_all_categories %>"></div>
+            </figure>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="bg-white my-5">
+        <h4 class="text-center py-5 wrapper-title">Global:</h4>
+        <figure class="highcharts-line-chart">
+            <div id="line-chart-container" data-set="<%= @children.calculate_cw_all_dates %>"></div>
+        </figure>
+      </div>
+      </div>
     </div>
-    <% end %>
-    </div>
-
-    <figure class="highcharts-line-chart mt-3">
-        <div id="line-chart-container" data-set="<%= @children.calculate_cw_all_dates %>"></div>
-    </figure>
-
-      </div>
-    </div>
+  </div>
+</div>
