@@ -1,43 +1,48 @@
-<%# %>
-<%#liste de tous les programmes %>
-<% @programs.each do |program| %>
-  <div class="program_card" id="program">
-    <div class="info_section">
-      <div class="program_header">
-        <% if program.photo.attached? %>
-          <%= cl_image_tag program.photo.key,class:"locandina", crop: :fill %>
-        <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card__image" alt="" />
-        <% end %>
-        <h2><%= program.title %></h2>
-        <h4><%= program.category %></h4>
-        <span class="minutes"><%= program.length %> min</span>
-        <p class="age">A partir de <%= program.min_age %> ans</p>
-      </div>
-      <div class="program_desc">
-        <p class="text">
-          <%= program.description.first(180) %>
-        </p>
-      </div>
-      <div class="program_social">
-        <ul>
-          <li>
-            <% if program.find_user_favorites(current_user)%>
-              <%= link_to  program_favorite_path(program, program.find_user_favorites(current_user)), method: :delete do%>
-                <i class="fas fa-heart"></i>
-              <% end %>
+<div class="bg-wrapper">
+  <div class="wrapper">
+    <%# search-bar %>
+    <%= render 'shared/searchbar' %>
+    <%# liste de tous les programmes %>
+    <% @programs.each do |program| %>
+      <div class="program_card" id="program">
+        <div class="info_section">
+          <div class="program_header">
+            <% if program.photo.attached? %>
+              <%= cl_image_tag program.photo.key,class:"locandina", crop: :fill %>
             <% else %>
-              <%= link_to program_favorites_path(program), method: :post do%>
-                <i class="far fa-heart"></i>
-              <% end %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card__image" alt="" />
             <% end %>
-          </li>
-          <li><%= link_to "Voir plus...", program_path(program), id:"link-show" %></li>
-        </ul>
+            <h2><%= program.title %></h2>
+            <h4><%= program.category %></h4>
+            <span class="minutes"><%= program.length %> min</span>
+            <p class="age">A partir de <%= program.min_age %> ans</p>
+          </div>
+          <div class="program_desc">
+            <p class="text">
+              <%= program.description.first(180) %>
+            </p>
+          </div>
+          <div class="program_social">
+            <ul>
+              <li>
+                <% if program.find_user_favorites(current_user)%>
+                  <%= link_to  program_favorite_path(program, program.find_user_favorites(current_user)), method: :delete do%>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to program_favorites_path(program), method: :post do%>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+              </li>
+              <li><%= link_to "Voir plus...", program_path(program), id:"link-show" %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="blur_back program_back">
+          <%= cl_image_tag program.photo.key, crop: :fill %>
+        </div>
       </div>
-    </div>
-    <div class="blur_back program_back">
-      <%= cl_image_tag program.photo.key, crop: :fill %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

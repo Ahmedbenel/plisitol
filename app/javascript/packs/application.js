@@ -43,4 +43,5 @@ document.addEventListener('turbolinks:load', () => {
     $(this).tab('show')
   })
 
+
 });

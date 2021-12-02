@@ -76,7 +76,7 @@ program = Program.create!(
   category: 'Action',
   length: 23,
   platform: netflix,
-  min_age: 6,
+  min_age: 5,
   max_age: 8,
   program_url: "https://www.netflix.com/watch/81045782?trackId=14170096&tctx=1%2C0%2Cf4ba40a3-f810-49e5-aa41-a67bd4f1ca44-42576721%2C645f4eac-8cd9-43a0-b0e6-56c327b80691_59700367X19XX1637683379498%2C%2C"
 )
@@ -89,7 +89,7 @@ program = Program.create!(
   category: 'Educatif',
   length: 5,
   platform: netflix,
-  min_age: 3,
+  min_age: 2,
   max_age: 5,
   program_url: "https://www.netflix.com/watch/81101585?trackId=14170036&tctx=1%2C9%2Cf4ba40a3-f810-49e5-aa41-a67bd4f1ca44-41994387%2C645f4eac-8cd9-43a0-b0e6-56c327b80691_59700367X19XX1637683379498%2C%2C"
 )
@@ -115,7 +115,7 @@ program = Program.create!(
   category: 'Educatif',
   length: 25,
   platform: netflix,
-  min_age: 7,
+  min_age: 6,
   max_age: 11,
   program_url: "https://www.betaseries.com/episode/ilaetaitunefoislavie/s01e01"
 )
@@ -142,7 +142,7 @@ program = Program.create!(
   length: 107,
   platform: disney_plus,
   min_age: 6,
-  max_age: 120,
+  max_age: 12,
   program_url: "https://www.disneyplus.com/fr-fr/movies/raya-et-le-dernier-dragon/6dyengbx3iYK?irclickid=TZIV-jwZ4xyITxN1QhQVjUoNUkG2QqRZnVgVyc0&irgwc=1&cid=DSS-Affiliate-Impact-Content-BetaSeries-692369"
 )
 program.photo.attach(io: URI.open('https://fr.web.img6.acsta.net/r_1920_1080/pictures/21/05/11/10/35/1825655.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
@@ -154,8 +154,8 @@ program = Program.create!(
   category: 'Fantastique',
   length: 110,
   platform: canal_plus,
-  min_age: 10,
-  max_age: 120,
+  min_age: 8,
+  max_age: 12,
   program_url: "https://www.canalplus.com/cinema/coco/h/15058385_50269"
 )
 program.photo.attach(io: URI.open('https://fr.web.img2.acsta.net/r_1920_1080/img/86/42/86423dfc4aea8afac1986c1c2c432879.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
@@ -168,7 +168,7 @@ program = Program.create!(
   length: 94,
   platform: disney_plus,
   min_age: 7,
-  max_age: 120,
+  max_age: 12,
   program_url: "https://www.disneyplus.com/fr-fr/movies/cherie-jai-retreci-les-gosses/53dNy2VPeJ8O?irclickid=TZIV-jwZ4xyITxN1QhQVjUoNUkG2QJVBnVgVyc0&irgwc=1&cid=DSS-Affiliate-Impact-Content-BetaSeries-692369"
 )
 program.photo.attach(io: URI.open('https://fr.web.img2.acsta.net/medias/nmedia/18/63/94/82/19631812.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
@@ -181,7 +181,7 @@ program = Program.create!(
   length: 52,
   platform: youtube,
   min_age: 5,
-  max_age: 120,
+  max_age: 12,
   program_url: "https://www.youtube.com/watch?v=8C00YQBOyt4"
 )
 program.photo.attach(io: URI.open('http://www.13productions.fr/boutique/159-large_default/guerre-et-paix-dans-le-potager.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
@@ -194,7 +194,7 @@ program = Program.create!(
   length: 7,
   platform: netflix,
   min_age: 3,
-  max_age: 7,
+  max_age: 6,
   program_url: "https://www.netflix.com/watch/81154175?trackId=14839166&tctx=-97%2C-97%2C%2C%2C%2C"
 )
 program.photo.attach(io: URI.open('https://pictures.betaseries.com/fonds/original/21638_1563645766.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
@@ -207,7 +207,7 @@ program = Program.create!(
   length: 23,
   platform: netflix,
   min_age: 2,
-  max_age: 9,
+  max_age: 6,
   program_url: "https://www.netflix.com/watch/80224093?trackId=13752289"
 )
 program.photo.attach(io: URI.open('https://toulouse.kidiklik.fr/images/agendas/32_5a7b3516a94c2.png'), filename: 'file.jpg', content_type: 'image/jpg')

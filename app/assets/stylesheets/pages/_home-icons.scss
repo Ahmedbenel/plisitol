@@ -1,0 +1,19 @@
+.icons-cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 46px;
+  padding: 32px;
+}
+
+.icons-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.icon-home {
+  width: 96px;
+}
