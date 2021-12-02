@@ -15,15 +15,18 @@
         </div>
       </div>
     </div>
-    <div class="program-content">
-      <div class="program-content-title-cat-age">
-        <h1><strong><%= @program.title %></strong></h1>
-        <h2><%= @program.category %></h2>
-        <h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3>
+    <div class="bg-wrapper">
+      <div class="wrapper">
+        <div class="program-content">
+          <div class="program-content-title-cat-age">
+            <h1><strong><%= @program.title %></strong></h1>
+            <h2><%= @program.category %></h2>
+            <h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3>
+          </div>
+            <p><%= @program.description %></p>
+        </div>
+        <%# à partir de cet endroit, avis laissés sur le programme en question. boucle for each à rajouter %>
+        <%= render 'programs/review' %>
       </div>
-        <p><%= @program.description %></p>
     </div>
-
-<%# à partir de cet endroit, avis laissés sur le programme en question. boucle for each à rajouter %>
-  <%= render 'programs/review' %>
 </div>

@@ -5,26 +5,28 @@
       <%= link_to "voir plus", programs_path, class: "btn-green" %>
     </div>
 
-
-
-    <div class="icons-cards-container">
-      <div class="icons-cards movie-icon">
-        <div class="movie-icon popcorn">
-          <%= (image_tag "icons/popcorn.png") %>
+    <div class="bg-wrapper">
+      <div class="wrapper">
+        <div class="icons-cards-container">
+          <div class="icons-cards movie-icon">
+            <div class="movie-icon popcorn">
+              <%= (image_tag "icons/popcorn.png", class:'icon-home') %>
+            </div>
+            <p><strong>TROUVEZ</strong> un film, une série ou un documentaire, un programme adapté à vos besoins</p>
+          </div>
+          <div class="icons-cards convo-icon">
+            <div class="movie-icon convo">
+              <%= (image_tag "icons/convo.png", class:'icon-home') %>
+            </div>
+            <p><strong>ECHANGEZ</strong> avec la communauté et enrichissez la plateforme par vos retours avisés</p>
+          </div>
+          <div class="icons-cards stat-icon">
+            <div class="movie-icon statsgraph">
+              <%= (image_tag "icons/statsgraph.png", class:'icon-home') %>
+            </div>
+            <p><strong>SUIVEZ</strong> le temps d’utilisation de l’écran pour vo/tre/s enfant/s</p>
+          </div>
         </div>
-        <p><strong>TROUVEZ</strong> un film, une série ou un documentaire, un programme adapté à vos besoins</p>
-      </div>
-      <div class="icons-cards convo-icon">
-        <div class="movie-icon convo">
-          <%= (image_tag "icons/convo.png") %>
-        </div>
-        <p><strong>ECHANGEZ</strong> avec la communauté et enrichissez la plateforme par vos retours avisés</p>
-      </div>
-      <div class="icons-cards stat-icon">
-        <div class="movie-icon statsgraph">
-          <%= (image_tag "icons/statsgraph.png") %>
-        </div>
-        <p><strong>SUIVEZ</strong> le temps d’utilisation de l’écran pour vo/tre/s enfant/s</p>
       </div>
     </div>
 </div>
