@@ -50,18 +50,22 @@
   text-align: center;
   width: 33%;
   background: $grey;
+  color: $light-blue !important;
 }
 
 .tier-nav-plus-one {
   text-align: center;
   width: 34%;
   background: $grey;
+  color: $light-blue !important;
 }
 
 .nav-link.active {
-  background: $dark-blue !important;
+  background: $orange !important;
+  color: $dark-blue !important;
 }
 
 .nav-link:hover {
-  background: $orange;
+  background: $light-orange;
+  color: $dark-blue !important;
 }
