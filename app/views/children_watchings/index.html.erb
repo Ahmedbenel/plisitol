@@ -22,8 +22,8 @@
           <%= button_tag type: 'submit' do %>
             <div class="child-children_watching-present">
               <%= child.name %>
-              <% unless child.image_url.blank? %>
-                <%= image_tag "avatars/#{child.image_url}", class: "avatar-large", alt: "avatar-large" %>
+              <% if child.photo.attached? %>
+                <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
               <% end %>
             </div>
           <% end %>

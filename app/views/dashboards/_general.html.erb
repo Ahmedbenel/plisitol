@@ -5,7 +5,7 @@
       <div class="general-kids-item">
         <%# if Rails.application.assets.present? %>
           <%# if Rails.application.assets.resolve("avatars/#{c.image_url}.png").first %>
-            <%= image_tag "avatars/#{c.image_url}", class: "avatar-large", alt: "avatar-large"%>
+          <%= cl_image_tag c.photo.key, class: "avatar-large", alt: "avatar-large"%>
           <%# end %>
         <%# end %>
         <%= link_to c.name, child_path(c),
@@ -24,14 +24,14 @@
                     as: :radio_buttons,
                     collection:
                       [
-                        [(image_tag 'avatars/avatar1.png'), 'avatar1.png'],
-                        [(image_tag 'avatars/avatar2.png'), 'avatar2.png'],
-                        [(image_tag 'avatars/avatar3.png'), 'avatar3.png'],
-                        [(image_tag 'avatars/avatar4.png'), 'avatar4.png'],
-                        [(image_tag 'avatars/avatar5.png'), 'avatar5.png'],
-                        [(image_tag 'avatars/avatar6.png'), 'avatar6.png'],
-                        [(image_tag 'avatars/avatar7.png'), 'avatar7.png'],
-                        [(image_tag 'avatars/avatar8.png'), 'avatar8.png']
+                        [(cl_image_tag 'avatar1_dz8vbc'), 'avatar1_dz8vbc'],
+                        [(cl_image_tag 'avatar2_xhwwal'), 'avatar2_xhwwal']
+                        # [(cl_image_tag 'https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar3_hzyhpj.png')],
+                        # [(cl_image_tag 'https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar4_vuugti.png')],
+                        # [(cl_image_tag 'https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar5_omemxm.png')],
+                        # [(cl_image_tag 'https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar6_lwmilx.png')],
+                        # [(cl_image_tag 'https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar7_bfovko.png')],
+                        # [(cl_image_tag 'https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar8_mmmtof.png')]
                       ],
                     label_method: :first,
                     value_method: :last,
