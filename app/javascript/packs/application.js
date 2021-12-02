@@ -35,5 +35,12 @@ document.addEventListener('turbolinks:load', () => {
   dynamicRating();
   addChild();
   addAccount();
-  loadingCharts();
+
+
+  $('#nav-stats-tab').on('click', function (event) {
+    event.preventDefault()
+    loadingCharts();
+    $(this).tab('show')
+  })
+
 });
