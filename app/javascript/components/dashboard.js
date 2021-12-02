@@ -105,6 +105,10 @@ const loadingCharts = () => {
   console.log(jsonLine);
   Highcharts.chart('line-chart-container', {
 
+    chart: {
+      type: 'column'
+    },
+
     title: {
       text: 'Minutes passées à regarder des vidéos sur la période'
     },
@@ -120,6 +124,27 @@ const loadingCharts = () => {
     },
 
     xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: {
+        day: '%e %d'
+      },
+      categories: [
+        '25-Nov',
+        '26-Nov',
+        '27-Nov',
+        '28-Nov',
+        '29-Nov',
+        '30-Nov',
+        '1-Dec',
+        '2-Dec',
+        '3-Dec'
+      ],
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true,
+      labels: {
+        rotation: -45
+      },
       accessibility: {
         rangeDescription: '8 derniers jours'
       }
