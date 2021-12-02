@@ -2,12 +2,6 @@ export { addChild }
 export { addAccount }
 export { loadingCharts }
 
-const childCamembert = () => {
-  const dataChildDiv = document.querySelector("#pie-chart-container");
-  const dataChild = dataChildDiv.getAttribute("data-set");
-  const dataJson = JSON.parse(dataChild);
-  return dataJson;
-};
 
 const childLine = () => {
   const dataChildId = document.querySelector("#line-chart-container");
@@ -43,8 +37,14 @@ const addAccount = () => {
 }
 
 const loadingCharts = () => {
-  const json = childCamembert();
-  Highcharts.chart('pie-chart-container', {
+  const children = document.querySelectorAll('.pie-chart')
+  children.forEach((child) => { pieChart(child) })
+  lineChart();
+};
+
+const pieChart = (child) => {
+  const json = JSON.parse(child.dataset.categories);
+  Highcharts.chart(child.id, {
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,
@@ -101,6 +101,9 @@ const loadingCharts = () => {
         }]
     }]
   });
+}
+
+const lineChart = () => {
   const jsonLine = childLine();
   console.log(jsonLine);
   Highcharts.chart('line-chart-container', {
@@ -190,6 +193,5 @@ const loadingCharts = () => {
         }
       }]
     }
-
   });
-};
+}
