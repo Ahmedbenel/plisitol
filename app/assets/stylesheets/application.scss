@@ -39,10 +39,12 @@ input, button, submit { border:none; }
 
 .bg-white {
   background: white;
+  border-radius: 5px;
 }
 
 .bg-grey {
   background: $grey;
+  border-radius: 5px;
 }
 
 .wrapper-title {
@@ -71,4 +73,8 @@ h3 {
     object-fit: cover;
     border-radius: 5px;
   }
+}
+
+.fa-trash-alt {
+  color: $orange;
 }

@@ -1,5 +1,4 @@
-<div class="container-activities my-5">
-
+<div class="container-activities my-5 pb-5 bg-grey">
   <h4 class="text-center py-5 wrapper-title">Mon historique :</h4>
     <div class="wrapper-activities">
       <div class="grid-program-activities">
@@ -13,10 +12,11 @@
           </div>
         <% end %>
       </div>
-    </div>
+  </div>
+</div>
 
-  <h4 class="text-center py-5 wrapper-title">Mes favoris :</h4>
-    <div class="wrapper-activities">
+  <div class="wrapper-activities bg-grey pb-5">
+    <h4 class="text-center py-5 wrapper-title">Mes favoris :</h4>
       <div class="grid-program-activities">
         <% current_user.favorites.each do |favorite| %>
           <div class="card-program-activities" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path favorite.program.photo.key, crop: :fill %>')" >
@@ -28,11 +28,11 @@
       </div>
     </div>
 
-  <h4 class="text-center py-5 wrapper-title">Mes avis :</h4>
-    <div class="activities-reviews-list">
+  <div class="activities-reviews-list pb-5 bg-grey">
+    <h4 class="text-center py-5 mt-5 wrapper-title">Mes avis :</h4>
       <% if current_user.reviews.present? %>
         <div class="wrapper-activities">
-          <div class="grid-program-activities">
+          <div class="grid-reviews-activities">
             <% current_user.reviews.each do |review| %>
 
             <div class="card text-center review-card" style="width: 18rem;">
@@ -49,10 +49,8 @@
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
+      <% end %>
+          </div>
         </div>
       <% end %>
-    </div>
-
-</div>
+  </div>
