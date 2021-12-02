@@ -8,7 +8,7 @@
         <%= f.input :category, collection: [""] + Program::CATEGORY, prompt: "Catégorie", label: false, required: false, selected: session[:search][:category] %>
         </div>
         <div class="home-form-age-field col-3">
-        <%= f.input :max_age, label: false, placeholder: "Jusqu'à...", as: :numeric, input_html: { min: 0, value: session[:search][:max_age] }, required: false %>
+        <%= f.input :max_age, label: false, placeholder: "Jusqu'à... ans", as: :numeric, input_html: { min: 0, value: session[:search][:max_age] }, required: false %>
         </div>
         <div class="home-form-length-field">
         <%= f.input :length, collection: [["all", ""]] + Program::LENGTH.map { |l| [l, l]}, prompt: "Durée", label: false, required: false, selected: session[:search][:length] %>
