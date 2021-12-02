@@ -17,17 +17,20 @@ ChildrenWatching.destroy_all
 
 puts 'Creating 1 fake user...'
 user = User.create!(email: 'user@plisitol.com', password: 'secret', username: "Anne O'Nyme")
-user.photo.attach(io: URI.open('https://thispersondoesnotexist.com/image'), filename: 'file.jpg', content_type: 'image/jpg')
+user.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638468048/production/pexels-daniel-xavier-1239288_akryaw-Circle_xg2n0y.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 user.save!
 
 puts 'Creating 3 fake children...'
-sidonie = Child.create!(name: "Sidonie", user_id: user.id, age: 10, image_url: "avatar1.png")
+sidonie = Child.create!(name: "Sidonie", user_id: user.id, age: 10)
+sidonie.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar1_bhgzro.png'), filename: 'avatar.png', content_type: 'image/png')
 sidonie.save!
 
-freya = Child.create!(name: "Freya", user_id: user.id, age: 3, image_url: "avatar4.png")
+freya = Child.create!(name: "Freya", user_id: user.id, age: 3)
+freya.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar8_mmmtof.png'), filename: 'avatar.png', content_type: 'image/png')
 freya.save!
 
-lukas = Child.create!(name: "Lukas", user_id: user.id, age: 6, image_url: "avatar8.png")
+lukas = Child.create!(name: "Lukas", user_id: user.id, age: 6)
+lukas.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar6_lwmilx.png'), filename: 'avatar.png', content_type: 'image/png')
 lukas.save!
 
 puts 'Creating 7 platforms...'

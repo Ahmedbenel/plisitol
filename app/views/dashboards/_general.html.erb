@@ -1,4 +1,5 @@
 <div class="general-wrap">
+
 <div class="bg-grey my-5">
 <h4 class="text-center py-5 wrapper-title">Enfants hébergés sur mon compte :</h4>
   <div class="general-kids-list align-items-start">
@@ -7,7 +8,7 @@
         <%# if Rails.application.assets.present? %>
           <%# if Rails.application.assets.resolve("avatars/#{c.image_url}.png").first %>
             <%#= image_tag "avatars/#{c.image_url}", class: "avatar-large", alt: "avatar-large"%>
-            <%= image_tag "avatars/#{child.image_url}", class: "avatar-large", alt: "avatar-large"%>
+            <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large"%>
             <h3><%= child.name %></h3>
           <%# end %>
         <%# end %>
@@ -29,14 +30,14 @@
                     as: :radio_buttons,
                     collection:
                       [
-                        [(image_tag 'avatars/avatar1.png'), 'avatar1'],
-                        [(image_tag 'avatars/avatar2.png'), 'avatar2'],
-                        [(image_tag 'avatars/avatar3.png'), 'avatar3'],
-                        [(image_tag 'avatars/avatar4.png'), 'avatar4'],
-                        [(image_tag 'avatars/avatar5.png'), 'avatar5'],
-                        [(image_tag 'avatars/avatar6.png'), 'avatar6'],
-                        [(image_tag 'avatars/avatar7.png'), 'avatar7'],
-                        [(image_tag 'avatars/avatar8.png'), 'avatar8']
+                        [(cl_image_tag 'avatar1_bhgzro')],
+                        [(cl_image_tag 'avatar2_k6kdsu')],
+                        [(cl_image_tag 'avatar3_hzyhpj')],
+                        [(cl_image_tag 'avatar4_vuugti')],
+                        [(cl_image_tag 'avatar5_omemxm')],
+                        [(cl_image_tag 'avatar6_lwmilx')],
+                        [(cl_image_tag 'avatar7_bfovko')],
+                        [(cl_image_tag 'avatar8_mmmtof')]
                       ],
                     label_method: :first,
                     value_method: :last,
