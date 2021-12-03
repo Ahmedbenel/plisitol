@@ -27,7 +27,7 @@
         <div class="d-flex justify-content-around">
           <% @children.each do |child| %>
           <div class="text-center">
-            <%= image_tag "avatars/#{child.image_url}", class: "avatar-large", alt: "avatar-large"%>
+            <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large"%>
             <h3><%= child.name %></h3>
             <figure class="highcharts-figure">
                 <div id="pie-chart-container-<%= child.id %>" class="pie-chart" data-categories="<%= child.calculate_cw_all_categories %>"></div>
