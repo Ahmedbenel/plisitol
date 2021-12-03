@@ -18,14 +18,12 @@
     <div class="bg-wrapper">
       <div class="wrapper">
         <div class="program-item bg-grey">
-          <div class="program-content">
-            <div class="program-content-title-cat-age">
-             <%# <h1><strong><@program.title></strong></h1> %>
-             <div class="show-categ"><h2><%= @program.category %></h2></div>
-             <div class="show-age-range"><h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3></div>
+            <div class="program-categ-and-age">
+              <%# <h1><strong><@program.title></strong></h1> %>
+              <div class="show-categ"><h2><%= @program.category %></h2></div>
+              <div class="show-age-range"><h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3></div>
             </div>
               <p><%= @program.description %></p>
-          </div>
         </div>
         <%# à partir de cet endroit, avis laissés sur le programme en question. boucle for each à rajouter %>
         <%= render 'programs/review' %>
