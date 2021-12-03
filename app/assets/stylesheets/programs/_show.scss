@@ -4,11 +4,12 @@
   background-size: cover;
   background-position: center;
   padding: 15px 0;
-  height: 80vh;
+  height: calc(100vh - 106px);
   align-items: flex-end;
   justify-content: flex-start;
   overflow: hidden;
   position: relative;
+  border-bottom: 8px solid white;
 }
 
 .program-banner img {
