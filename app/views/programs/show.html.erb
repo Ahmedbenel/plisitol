@@ -17,12 +17,12 @@
     </div>
     <div class="bg-wrapper">
       <div class="wrapper">
-        <div class="program-item">
+        <div class="program-item bg-grey">
           <div class="program-content">
             <div class="program-content-title-cat-age">
-             <h1><strong><%= @program.title %></strong></h1>
-             <h2><%= @program.category %></h2>
-             <h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3>
+             <%# <h1><strong><@program.title></strong></h1> %>
+             <div class="show-categ"><h2><%= @program.category %></h2></div>
+             <div class="show-age-range"><h3>De <%= @program.min_age %> à <%= @program.max_age %> ans</h3></div>
             </div>
               <p><%= @program.description %></p>
           </div>

@@ -40,8 +40,23 @@
 }
 
 .program-content-title-cat-age {
-  display: flex;
-  justify-content: space-around;
+   h2, h3 {
+     text-align: left;
+   }
+   .show-categ {
+    width: 174px;
+    background-color: rgba(255, 183, 3, 0.5);
+    color: $orange;
+    border: 1px solid $orange;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+   }
+   .show-categ:hover {
+     opacity: 1;
+   }
 }
 
 .program-item {
