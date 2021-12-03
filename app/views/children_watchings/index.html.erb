@@ -2,40 +2,50 @@
   <i class="fas fa-chevron-left"></i>
   <%= link_to 'Retour', program_path(@watching.program) %>
 </div>
-<div class="container-children-watching">
-  <h2>Qui participe à la séance ?</h2>
-  <div class="card-child-avatar">
-    <% current_user.children.each do |child| %>
-      <% if child.watchings.where(id: params[:watching_id]).any?  %>
-        <%= link_to children_watching_path(child.find_child_watchings(@watching)), method: :delete do %>
-          <div class="child-children_watching">
-            <%= child.name %>
-            <% if child.photo.attached? %>
-              <%= cl_image_tag child.photo.key, class: "avatar-bordered" %>
+
+<div class="bg-wrapper">
+  <div class="wrapper">
+    <div class="bg-grey my-5 p-5">
+      <h4 class="text-center wrapper-title">Qui participe à la séance ?</h4>
+      <div class="w-100 text-center">
+
+        <div class="container-children-watching">
+          <div class="card-child-avatar">
+            <% current_user.children.each do |child| %>
+              <% if child.watchings.where(id: params[:watching_id]).any?  %>
+                <%= link_to children_watching_path(child.find_child_watchings(@watching)), method: :delete do %>
+                  <div class="child-children_watching">
+                    <% if child.photo.attached? %>
+                      <%= cl_image_tag child.photo.key, class: "avatar-bordered" %>
+                    <% end %>
+                    <h3 class=""><%= child.name %></h3>
+                  </div>
+                <% end %>
+                <%#= on affiche le avatar du sale gosse entouré de bleu %>
+              <% else %>
+                <%= simple_form_for([@watching, @children_watching]) do |f| %>
+                  <%= f.hidden_field :child_id, value: child.id %>
+                  <%= button_tag type: 'submit' do %>
+                    <div class="child-children_watching-present">
+                      <% if child.photo.attached? %>
+                        <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
+                      <% end %>
+                      <h3 class="pt-3"><%= child.name %></h3>
+                    </div>
+                  <% end %>
+                <% end %>
+                <%#= on affiche le avatar sans cercle bleu %>
+              <% end %>
             <% end %>
           </div>
-        <% end %>
-        <%#= on affiche le avatar du sale gosse entouré de bleu %>
-      <% else %>
-        <%= simple_form_for([@watching, @children_watching]) do |f| %>
-          <%= f.hidden_field :child_id, value: child.id %>
-          <%= button_tag type: 'submit' do %>
-            <div class="child-children_watching-present">
-              <%= child.name %>
-              <% if child.photo.attached? %>
-                <%= cl_image_tag child.photo.key, class: "avatar-large", alt: "avatar-large" %>
-              <% end %>
+          <%#= lien vers la vidéo sur la plateforme %>
+          <% if @children_watchings.present? %>
+            <div class="btn-orange">
+              <%= link_to "Votre séance !", @watching.program.program_url, :target => "_blank" %>
             </div>
           <% end %>
-        <% end %>
-        <%#= on affiche le avatar sans cercle bleu %>
-      <% end %>
-    <% end %>
-  </div>
-  <%#= lien vers la vidéo sur la plateforme %>
-  <% if @children_watchings.present? %>
-    <div class="btn-orange">
-      <%= link_to "Votre séance !", @watching.program.program_url, :target => "_blank" %>
+        </div>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div>

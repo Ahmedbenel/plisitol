@@ -1,10 +1,31 @@
-<div class="review-container">
+<div class="review-container text-center">
+
+  <% if @watching && !@already_reviewed %>
+      <h4 class="text-center pb-5 wrapper-title">Laissez un commentaire :</h4>
+      <div class="review">
+        <%= simple_form_for [@program, @review] do |f| %>
+          <%= f.input :content, label: false, input_html: { class: "border-blue"} %>
+          <%= f.input :rating, as: :hidden  %>
+          <div class="my-3">
+            <% Review::AUTHORIZED_RATINGS.each do |index| %>
+              <i id="<%= index %>" class="review-rating far fa-star"></i>
+            <% end %>
+          </div>
+          <%= f.submit class: "btn-orange", value: "Valider" %>
+        <% end %>
+      </div>
+    <% else %>
+    <h4 class="text-center pb-5 wrapper-title">Commentaires :</h4>
+  <% end %>
+
+
+
       <% if @program.present? %>
         <% @program.reviews.each do |review| %>
-          <div class="reviews-card">
+          <div class="reviews-card border-blue">
               <div class="user-review">
                   <h4><%= review.username %></h4>
-                  <time datetime="#" class="card__date"><%= review.created_at %></time>
+                  <time datetime="#" class="card__date"><%= review.created_at.strftime("%d/%m/%y") %></time>
               </div>
               <div class="rating-review">
                     <% Review::AUTHORIZED_RATINGS.each do |number| %>
@@ -15,21 +36,4 @@
           </div>
         <% end %>
       <% end %>
-
-
-  <% if @watching && !@already_reviewed %>
-      <div class="review">
-        <h3>Laissez un commentaire</h3>
-        <%= simple_form_for [@program, @review] do |f| %>
-          <%= f.input :content, label: false %>
-          <%= f.input :rating, as: :hidden  %>
-          <div class="my-3">
-            <% Review::AUTHORIZED_RATINGS.each do |index| %>
-              <i id="<%= index %>" class="review-rating far fa-star"></i>
-            <% end %>
-          </div>
-          <%= f.submit class: "btn-orange", value: "Valider" %>
-        <% end %>
-      </div>
-  <% end %>
 </div>
