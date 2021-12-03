@@ -9,5 +9,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 64px;
   text-align: center;
-  background-color: $light-blue;
+  background-color: $grey;
+  color: $dark-blue;
+  h3 {
+    color: $dark-blue;
+  }
 }
