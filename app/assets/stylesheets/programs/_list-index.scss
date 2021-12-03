@@ -5,7 +5,7 @@
   height: 350px;
   margin: 80px auto;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: all 0.4s;
   box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
   &:hover{
@@ -19,7 +19,7 @@
     height: 100%;
 	  background-blend-mode: multiply;
     z-index: 2;
-    border-radius: 10px;
+    border-radius: 5px;
     .program_header{
       position: relative;
       padding: 25px;
@@ -97,10 +97,11 @@
   .blur_back{
     position: absolute;
     top: 0;
+    right: 0;
     z-index: 1;
     height: 100%; right: 0;
     background-size: cover;
-    border-radius: 11px;
+    border-radius: 5px;
   }
 }
 

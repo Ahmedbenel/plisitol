@@ -1,5 +1,5 @@
 <div class="home-container">
-    <div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2848&q=80);">
+    <div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2848&q=80);">
       <h1> <strong>PliSiTol</strong> </h1>
       <p>Quels programmes pour divertir vos enfants ?</p>
       <%= link_to "voir plus", programs_path, class: "btn-orange" %>
@@ -7,7 +7,17 @@
 
     <div class="bg-wrapper">
       <div class="wrapper">
-        <div class="icons-cards-container bg-grey">
+        <div class="bg-grey my-5 p-5">
+          <h4 class="text-center pb-5 wrapper-title">Notre vision :</h4>
+          <div class="w-100 text-center pb-5 ">
+            <%= image_tag("PliSiTol.png", class: "p-3 platform-avatar border-blue bg-white border-radius-50") %>
+          </div>
+          <p class="text-center px-5">"Pli si tol" signifie littéralement la pluie sur la tôle. Dans les pays tropicaux où il pleut beaucoup, les maisons ont un toit en tôle et quand il pleut le bruit est caractéristique. Cet outil vise à aider les parents ou toutes personnes en charge d’enfants en les accompagnant au mieux à travers les programmes audiovisuels. Grâce à PliSiTol vous accédez à une liste de programmes aux contenus divers et adaptés à l’âge de vos enfants. Vous pourrez également suivre leur activité et échanger avec la communauté en dialoguant avec les autres utilisateurs !</p>
+        </div>
+
+        <div class="bg-grey my-5">
+        <h4 class="text-center pt-5 wrapper-title">Les fonctionnalités :</h4>
+          <div class="icons-cards-container">
           <div class="icons-cards movie-icon">
             <div class="movie-icon popcorn mb-3">
               <%= (image_tag "icons/popcorn.png", class:'icon-home') %>
@@ -25,6 +35,7 @@
               <%= (image_tag "icons/statsgraph.png", class:'icon-home') %>
             </div>
             <p><strong>SUIVEZ</strong> <br>le temps d’utilisation de l’écran pour vo/tre/s enfant/s</p>
+          </div>
           </div>
         </div>
       </div>

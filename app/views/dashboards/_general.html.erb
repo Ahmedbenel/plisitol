@@ -51,7 +51,7 @@
 </div>
 <div class="bg-grey my-5 pb-5">
 <h4 class="text-center py-5 wrapper-title">Mes comptes :</h4>
-  <div class="general-accounts-list">
+  <div class="general-accounts-list flex-wrap">
   <% current_user.platforms.each do |p| %>
     <div class="general-accounts-item">
       <%= link_to account_path(current_user.accounts.find_by(platform: p)),
@@ -66,7 +66,7 @@
   <div class="account-add-form border-blue p-3 disable">
     <%= simple_form_for @account do |f| %>
       <%= f.association :platform, label: false, prompt: "Compte" %>
-      <%= f.button :submit, "Ajouter un compte", class: "btn btn-warning" %>
+      <%= f.button :submit, "Ajouter un compte", class: "btn btn-orange" %>
     <% end %>
   </div>
   </div>

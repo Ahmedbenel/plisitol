@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review.program = @program
     @watching = Watching.find_by_user_id(current_user)
     @review.watching = @watching
-    if @review.save!
+    if @review.save
       redirect_to program_path(@program)
     else
       render 'programs/show'

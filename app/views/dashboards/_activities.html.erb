@@ -39,7 +39,7 @@
               <%= cl_image_tag review.program.photo.key, class: "card-img-top" %>
               <div class="card-body">
                 <h5 class="card-title"><%= review.program.title %></h5>
-                <time datetime="#" class="card__date"><%= review.created_at %></time>
+                <time datetime="#" class="card__date"><%= review.created_at.strftime("%d/%m/%y") %></time>
                 <div class="rating-review">
                     <p class="card-text"><%= review.content %></p>
 
