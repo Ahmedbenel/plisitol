@@ -15,13 +15,25 @@ Platform.destroy_all
 Watching.destroy_all
 ChildrenWatching.destroy_all
 
-puts 'Creating 1 fake user...'
-user = User.create!(email: 'user@plisitol.com', password: 'secret', username: "Anne O'Nyme")
+puts 'Creating 4 fake users...'
+user = User.create!(email: 'anne@plisitol.com', password: 'secret', username: "Anne O'Nyme")
 user.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638468048/production/pexels-daniel-xavier-1239288_akryaw-Circle_xg2n0y.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
 user.save!
 
+user2 = User.create!(email: 'asterix@plisitol.com', password: 'secret', username: "Astérix Épéril")
+user2.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638528994/production/pexels-italo-melo-2379004_rstuqv-Circle_xqa9k3.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
+user2.save!
+
+user3 = User.create!(email: 'clement@plisitol.com', password: 'secret', username: "Clément Tine")
+user3.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638528968/production/pexels-justin-shaifer-1222271_ewpucm-Circle_mtw2wz.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
+user3.save!
+
+user4 = User.create!(email: 'daisy@plisitol.com', password: 'secret', username: "Daisy Des Rata")
+user4.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638529017/production/pexels-cottonbro-4974350_bng0nt-Circle_tuen0f.jpg'), filename: 'file.jpg', content_type: 'image/jpg')
+user4.save!
+
 puts 'Creating 3 fake children...'
-sidonie = Child.create!(name: "Sidonie", user_id: user.id, age: 10)
+sidonie = Child.create!(name: "Sidonie", user_id: user.id, age: 7)
 sidonie.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar1_bhgzro.png'), filename: 'avatar.png', content_type: 'image/png')
 sidonie.save!
 
@@ -29,7 +41,7 @@ freya = Child.create!(name: "Freya", user_id: user.id, age: 3)
 freya.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar8_mmmtof.png'), filename: 'avatar.png', content_type: 'image/png')
 freya.save!
 
-lukas = Child.create!(name: "Lukas", user_id: user.id, age: 6)
+lukas = Child.create!(name: "Lukas", user_id: user.id, age: 5)
 lukas.photo.attach(io: URI.open('https://res.cloudinary.com/dkeh6owbw/image/upload/v1638457449/production/avatar6_lwmilx.png'), filename: 'avatar.png', content_type: 'image/png')
 lukas.save!
 
@@ -69,8 +81,8 @@ account_netflix.save!
 account_amazon_prime = Account.create!(user_id: user.id, platform_id: amazon_prime.id)
 account_amazon_prime.save!
 
-account_disney_plus = Account.create!(user_id: user.id, platform_id: disney_plus.id)
-account_disney_plus.save!
+account_youtube = Account.create!(user_id: user.id, platform_id: youtube.id)
+account_youtube.save!
 
 puts 'Creating 10 programs...'
 program = Program.create!(
