@@ -19,9 +19,9 @@
 
   <% if @watching && !@already_reviewed %>
       <div class="review">
-        <h3>Laissez une évaluation</h3>
+        <h3>Laissez un commentaire</h3>
         <%= simple_form_for [@program, @review] do |f| %>
-          <%= f.input :content %>
+          <%= f.input :content, label: false %>
           <%= f.input :rating, as: :hidden  %>
           <div class="my-3">
             <% Review::AUTHORIZED_RATINGS.each do |index| %>
